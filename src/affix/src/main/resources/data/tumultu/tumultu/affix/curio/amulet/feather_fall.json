@@ -1,0 +1,33 @@
+{
+  "type": "suffix",
+  "display_name": "of Feather Fall",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:gravity",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": -0.19,
+      "max_value": -0.10
+    },
+    {
+      "min_value": -0.34,
+      "max_value": -0.20
+    },
+    {
+      "min_value": -0.5,
+      "max_value": -0.35
+    },
+    {
+      "min_value": -0.65,
+      "max_value": -0.51
+    }
+  ],
+  "weight": 12,
+  "group": "curio_amulet_gravity",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "mobility"
+}

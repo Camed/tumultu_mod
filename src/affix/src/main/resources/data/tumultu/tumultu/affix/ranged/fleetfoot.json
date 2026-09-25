@@ -1,0 +1,29 @@
+{
+  "type": "suffix",
+  "display_name": "of the Fleetfoot",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.02,
+      "max_value": 0.04
+    },
+    {
+      "min_value": 0.04,
+      "max_value": 0.06
+    },
+    {
+      "min_value": 0.06,
+      "max_value": 0.09
+    }
+  ],
+  "weight": 18,
+  "group": "movement_speed",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "mobility"
+}

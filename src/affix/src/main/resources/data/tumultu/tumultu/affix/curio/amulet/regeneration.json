@@ -1,0 +1,31 @@
+{
+  "type": "suffix",
+  "display_name": "of Regeneration",
+  "effect": {
+    "type": "life_regeneration"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.21,
+      "max_value": 0.39
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.55
+    },
+    {
+      "min_value": 0.55,
+      "max_value": 0.75
+    }
+  ],
+  "weight": 15,
+  "group": "curio_amulet_life_regeneration",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "life"
+}

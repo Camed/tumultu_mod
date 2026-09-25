@@ -1,0 +1,24 @@
+{
+  "type": "prefix",
+  "display_name": "Frosted",
+  "effect": {
+    "type": "flat_elemental_damage",
+    "element": "cold"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 3.0
+    }
+  ],
+  "weight": 15,
+  "group": "curio_ring_flat_cold",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "elemental_offense"
+}

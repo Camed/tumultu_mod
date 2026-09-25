@@ -1,0 +1,27 @@
+{
+  "type": "suffix",
+  "display_name": "of Sustenance",
+  "effect": {
+    "type": "hunger_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 0.5,
+      "max_value": 1.0
+    },
+    {
+      "min_value": 1.0,
+      "max_value": 1.5
+    },
+    {
+      "min_value": 1.5,
+      "max_value": 2.0
+    }
+  ],
+  "weight": 12,
+  "group": "hunger_on_kill",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "sustenance"
+}

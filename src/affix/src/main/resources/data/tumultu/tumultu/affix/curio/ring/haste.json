@@ -1,0 +1,28 @@
+{
+  "type": "suffix",
+  "display_name": "of Haste",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:attack_speed"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.3,
+      "max_value": 0.5
+    },
+    {
+      "min_value": 0.5,
+      "max_value": 0.7
+    }
+  ],
+  "weight": 18,
+  "group": "curio_ring_attack_speed",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "physical_offense"
+}

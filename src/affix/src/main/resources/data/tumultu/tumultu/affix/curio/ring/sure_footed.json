@@ -1,0 +1,28 @@
+{
+  "type": "prefix",
+  "display_name": "Sure-Footed",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:step_height"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.21,
+      "max_value": 0.3
+    },
+    {
+      "min_value": 0.31,
+      "max_value": 0.4
+    }
+  ],
+  "weight": 12,
+  "group": "curio_ring_step_height",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "mobility"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "prefix",
+  "display_name": "Cinderheart's",
+  "effect": {
+    "type": "flat_elemental_damage",
+    "element": "fire"
+  },
+  "tiers": [
+    {
+      "min_value": 8.0,
+      "max_value": 8.0
+    }
+  ],
+  "weight": 1,
+  "group": "unique_cinderheart_fire",
+  "applicable_tags": [
+    "tumultu:cinderheart"
+  ],
+  "craft_category": "elemental_offense"
+}

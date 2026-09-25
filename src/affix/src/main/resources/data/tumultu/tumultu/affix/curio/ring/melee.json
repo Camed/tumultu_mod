@@ -1,0 +1,27 @@
+{
+  "type": "prefix",
+  "display_name": "Aggressive",
+  "effect": {
+    "type": "melee_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.15
+    },
+    {
+      "min_value": 0.16,
+      "max_value": 0.20
+    }
+  ],
+  "weight": 15,
+  "group": "curio_ring_melee_damage",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "physical_offense"
+}

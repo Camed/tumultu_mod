@@ -1,0 +1,39 @@
+{
+  "type": "prefix",
+  "display_name": "Swift",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed"
+  },
+  "tiers": [
+    {
+      "min_value": 0.01,
+      "max_value": 0.02
+    },
+    {
+      "min_value": 0.02,
+      "max_value": 0.03
+    },
+    {
+      "min_value": 0.03,
+      "max_value": 0.05,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.05,
+      "max_value": 0.07,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 18,
+  "group": "movement_speed",
+  "applicable_tags": [
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "mobility"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "prefix",
+  "display_name": "Pillager's",
+  "effect": {
+    "type": "all_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.10,
+      "max_value": 0.30
+    }
+  ],
+  "weight": 1,
+  "group": "unique_pillagers_favour_damage_percent",
+  "applicable_tags": [
+    "tumultu:pillagers_favour"
+  ],
+  "craft_category": "physical_offense"
+}

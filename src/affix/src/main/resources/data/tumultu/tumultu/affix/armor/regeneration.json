@@ -1,0 +1,41 @@
+{
+  "type": "suffix",
+  "display_name": "of Regeneration",
+  "effect": {
+    "type": "life_regeneration"
+  },
+  "tiers": [
+    {
+      "min_value": 0.2,
+      "max_value": 0.4
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.6
+    },
+    {
+      "min_value": 0.6,
+      "max_value": 0.9,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.9,
+      "max_value": 1.3,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 18,
+  "group": "life_regeneration",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:chest_armor",
+    "minecraft:leg_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "life"
+}

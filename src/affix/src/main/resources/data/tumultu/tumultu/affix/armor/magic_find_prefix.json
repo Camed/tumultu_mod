@@ -1,0 +1,40 @@
+{
+  "type": "prefix",
+  "display_name": "Fortunate",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:luck"
+  },
+  "tiers": [
+    {
+      "min_value": 0.5,
+      "max_value": 1.0
+    },
+    {
+      "min_value": 1.0,
+      "max_value": 1.5
+    },
+    {
+      "min_value": 1.5,
+      "max_value": 2.0,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 2.5,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 5,
+  "group": "magic_find_prefix",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "fortune"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of Certainty",
+  "effect": {
+    "type": "crit_chance_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 1.0
+    }
+  ],
+  "weight": 1,
+  "group": "unique_crown_of_stability_crit_chance_multiplier",
+  "applicable_tags": [
+    "tumultu:crown_of_stability"
+  ],
+  "craft_category": "critical"
+}

@@ -1,0 +1,21 @@
+{
+  "type": "prefix",
+  "display_name": "Dragon's Heart's",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:max_health",
+    "operation": "add_value"
+  },
+  "tiers": [
+    {
+      "min_value": 100.0,
+      "max_value": 100.0
+    }
+  ],
+  "weight": 1,
+  "group": "unique_dragons_heart_max_health",
+  "applicable_tags": [
+    "tumultu:dragons_heart"
+  ],
+  "craft_category": "life"
+}

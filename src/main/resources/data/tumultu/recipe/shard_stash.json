@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:chest",
+    "S": "minecraft:amethyst_shard"
+  },
+  "pattern": [
+    "ISI",
+    "SCS",
+    "ISI"
+  ],
+  "result": { "id": "tumultu:shard_stash" }
+}

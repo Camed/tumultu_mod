@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "#": "tumultu:recipe_poison"
+  },
+  "pattern": [
+    "DDD",
+    "D#D",
+    "DDD"
+  ],
+  "result": {
+    "id": "tumultu:recipe_poison",
+    "count": 2
+  }
+}

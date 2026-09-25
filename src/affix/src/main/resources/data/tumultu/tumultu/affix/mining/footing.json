@@ -1,0 +1,26 @@
+{
+  "type": "suffix",
+  "display_name": "of Sure Footing",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:step_height"
+  },
+  "tiers": [
+    {
+      "min_value": 0.2,
+      "max_value": 0.4
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.6
+    }
+  ],
+  "weight": 10,
+  "group": "step_height",
+  "applicable_tags": [
+    "minecraft:pickaxes",
+    "minecraft:shovels",
+    "minecraft:hoes"
+  ],
+  "craft_category": "mining_traversal"
+}

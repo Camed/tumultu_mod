@@ -1,0 +1,38 @@
+{
+  "type": "suffix",
+  "display_name": "of the Unyielding",
+  "effect": {
+    "type": "physical_damage_reduction"
+  },
+  "tiers": [
+    {
+      "min_value": 0.03,
+      "max_value": 0.05
+    },
+    {
+      "min_value": 0.05,
+      "max_value": 0.08
+    },
+    {
+      "min_value": 0.08,
+      "max_value": 0.11,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.11,
+      "max_value": 0.15,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 3,
+  "group": "physical_damage_reduction",
+  "applicable_tags": [
+    "minecraft:chest_armor"
+  ],
+  "craft_category": "physical_defense"
+}

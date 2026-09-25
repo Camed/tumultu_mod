@@ -1,0 +1,12 @@
+// Base config (java-library, net.neoforged.moddev, toolchain) comes from the root build.gradle's
+// subprojects { } block. This just adds what's specific to this domain.
+dependencies {
+    // PlayerCombatStats reads equipped Curios slots directly via Curios' own API.
+    implementation "maven.modrinth:curios:${rootProject.curios_version}"
+
+    // CombatEventHandler/PlayerCombatStats/RangedEventHandler/CombatTickHandler read
+    // AffixDefinition/AffixData/AffixEffect (com.tumultu.affix) and TumultuRegistries/
+    // TumultuDataComponents/TumultuUniqueItems (com.tumultu.registry, both physically inside
+    // this same :affix module - see settings.gradle).
+    implementation project(':affix')
+}

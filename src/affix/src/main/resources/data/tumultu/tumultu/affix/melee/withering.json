@@ -1,0 +1,39 @@
+{
+  "type": "suffix",
+  "display_name": "of Withering",
+  "effect": {
+    "type": "chance_to_wither"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.15
+    },
+    {
+      "min_value": 0.15,
+      "max_value": 0.2,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.25,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 3,
+  "group": "chance_to_wither",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "dot_general"
+}

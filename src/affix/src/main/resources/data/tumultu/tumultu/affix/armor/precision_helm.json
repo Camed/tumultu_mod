@@ -1,0 +1,38 @@
+{
+  "type": "suffix",
+  "display_name": "of Precision",
+  "effect": {
+    "type": "crit_chance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.02,
+      "max_value": 0.04
+    },
+    {
+      "min_value": 0.04,
+      "max_value": 0.06
+    },
+    {
+      "min_value": 0.06,
+      "max_value": 0.09,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.09,
+      "max_value": 0.13,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "crit_chance",
+  "applicable_tags": [
+    "minecraft:head_armor"
+  ],
+  "craft_category": "critical"
+}

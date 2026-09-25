@@ -1,0 +1,21 @@
+{
+  "type": "suffix",
+  "display_name": "of the Pillager",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:luck",
+    "operation": "add_value"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 3.0
+    }
+  ],
+  "weight": 1,
+  "group": "unique_pillagers_favour_luck",
+  "applicable_tags": [
+    "tumultu:pillagers_favour"
+  ],
+  "craft_category": "fortune"
+}

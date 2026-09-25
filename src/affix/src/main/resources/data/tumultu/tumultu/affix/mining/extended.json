@@ -1,0 +1,42 @@
+{
+  "type": "prefix",
+  "display_name": "Extended",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:block_interaction_range"
+  },
+  "tiers": [
+    {
+      "min_value": 0.5,
+      "max_value": 1.0
+    },
+    {
+      "min_value": 1.0,
+      "max_value": 1.5
+    },
+    {
+      "min_value": 1.5,
+      "max_value": 2.5,
+      "applicable_tags": [
+        "tumultu:tier2_tools",
+        "tumultu:tier1_tools"
+
+      ]
+    },
+    {
+      "min_value": 2.5,
+      "max_value": 3.5,
+      "applicable_tags": [
+        "tumultu:tier1_tools"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "block_range",
+  "applicable_tags": [
+    "minecraft:pickaxes",
+    "minecraft:shovels",
+    "minecraft:hoes"
+  ],
+  "craft_category": "mining_traversal"
+}

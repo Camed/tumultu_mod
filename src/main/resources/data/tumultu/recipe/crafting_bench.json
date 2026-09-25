@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "A": "minecraft:amethyst_shard",
+    "#": "#minecraft:planks"
+  },
+  "pattern": [
+    "IAI",
+    "###",
+    "###"
+  ],
+  "result": { "id": "tumultu:crafting_bench" }
+}

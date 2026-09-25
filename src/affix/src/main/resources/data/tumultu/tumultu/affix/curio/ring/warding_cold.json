@@ -1,0 +1,28 @@
+{
+  "type": "suffix",
+  "display_name": "of Cold Warding",
+  "effect": {
+    "type": "elemental_resistance",
+    "element": "cold"
+  },
+  "tiers": [
+    {
+      "min_value": 0.03,
+      "max_value": 0.06
+    },
+    {
+      "min_value": 0.06,
+      "max_value": 0.12
+    },
+    {
+      "min_value": 0.12,
+      "max_value": 0.24
+    }
+  ],
+  "weight": 15,
+  "group": "curio_ring_cold_resistance",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "elemental_defense"
+}

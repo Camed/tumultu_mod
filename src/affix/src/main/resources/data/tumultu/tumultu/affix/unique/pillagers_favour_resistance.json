@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of Favour",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.15
+    }
+  ],
+  "weight": 1,
+  "group": "unique_pillagers_favour_resistance",
+  "applicable_tags": [
+    "tumultu:pillagers_favour"
+  ],
+  "craft_category": "elemental_defense"
+}

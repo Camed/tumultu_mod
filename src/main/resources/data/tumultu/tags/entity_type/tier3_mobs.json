@@ -1,0 +1,18 @@
+{
+  "values": [
+    "minecraft:witch",
+    "minecraft:vindicator",
+    "minecraft:evoker",
+    "minecraft:enderman",
+    "minecraft:blaze",
+    "minecraft:guardian",
+    "minecraft:shulker",
+    "minecraft:breeze",
+    "minecraft:hoglin",
+    "minecraft:zoglin",
+    "minecraft:piglin_brute",
+    "minecraft:illusioner",
+    "tumultu:blightfang",
+    "tumultu:blightbone"
+  ]
+}

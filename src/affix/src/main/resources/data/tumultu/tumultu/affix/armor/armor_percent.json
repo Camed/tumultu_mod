@@ -1,0 +1,43 @@
+{
+  "type": "prefix",
+  "display_name": "Reinforced",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:armor",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.21,
+      "max_value": 0.30
+    },
+    {
+      "min_value": 0.31,
+      "max_value": 0.40,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.41,
+      "max_value": 0.50,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 20,
+  "group": "armor_percent",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:chest_armor",
+    "minecraft:leg_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "armor_stats"
+}

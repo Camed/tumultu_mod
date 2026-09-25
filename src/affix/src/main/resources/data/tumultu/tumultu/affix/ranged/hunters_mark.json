@@ -1,0 +1,27 @@
+{
+  "type": "suffix",
+  "display_name": "of the Hunter",
+  "effect": {
+    "type": "life_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 4.0
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 6.0
+    }
+  ],
+  "weight": 18,
+  "group": "life_on_kill",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "life"
+}

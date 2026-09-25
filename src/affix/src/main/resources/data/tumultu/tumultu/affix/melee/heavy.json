@@ -1,0 +1,40 @@
+{
+  "type": "prefix",
+  "display_name": "Heavy",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:attack_damage"
+  },
+  "tiers": [
+    {
+      "min_value": 3.0,
+      "max_value": 5.0
+    },
+    {
+      "min_value": 6.0,
+      "max_value": 9.0
+    },
+    {
+      "min_value": 10.0,
+      "max_value": 14.0,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 15.0,
+      "max_value": 20.0,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 25,
+  "group": "flat_physical_damage",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "physical_offense"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "suffix",
+  "display_name": "of the Marksman",
+  "effect": {
+    "type": "ranged_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.04,
+      "max_value": 0.08
+    },
+    {
+      "min_value": 0.09,
+      "max_value": 0.15
+    },
+    {
+      "min_value": 0.16,
+      "max_value": 0.19
+    },
+    {
+      "min_value": 0.19,
+      "max_value": 0.24
+    }
+  ],
+  "weight": 15,
+  "group": "curio_amulet_ranged_damage",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "ranged_utility"
+}

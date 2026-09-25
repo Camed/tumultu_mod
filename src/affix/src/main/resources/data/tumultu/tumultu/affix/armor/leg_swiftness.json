@@ -1,0 +1,39 @@
+{
+  "type": "prefix",
+  "display_name": "Nimble",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed"
+  },
+  "tiers": [
+    {
+      "min_value": 0.005,
+      "max_value": 0.01
+    },
+    {
+      "min_value": 0.01,
+      "max_value": 0.015
+    },
+    {
+      "min_value": 0.015,
+      "max_value": 0.02,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.02,
+      "max_value": 0.03,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 18,
+  "group": "movement_speed",
+  "applicable_tags": [
+    "minecraft:leg_armor"
+  ],
+  "craft_category": "mobility"
+}

@@ -1,0 +1,41 @@
+{
+  "type": "prefix",
+  "display_name": "Bulwark's",
+  "effect": {
+    "type": "hybrid_armor_life"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.08
+    },
+    {
+      "min_value": 0.08,
+      "max_value": 0.12
+    },
+    {
+      "min_value": 0.12,
+      "max_value": 0.16,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.16,
+      "max_value": 0.22,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 18,
+  "group": "hybrid_armor_life",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:chest_armor",
+    "minecraft:leg_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "life"
+}

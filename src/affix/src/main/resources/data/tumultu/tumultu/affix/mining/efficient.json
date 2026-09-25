@@ -1,0 +1,30 @@
+{
+  "type": "prefix",
+  "display_name": "Efficient",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:mining_efficiency"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 3.0
+    },
+    {
+      "min_value": 3.0,
+      "max_value": 4.0
+    }
+  ],
+  "weight": 30,
+  "group": "mining_efficiency",
+  "applicable_tags": [
+    "minecraft:pickaxes",
+    "minecraft:shovels",
+    "minecraft:hoes"
+  ],
+  "craft_category": "mining_speed"
+}

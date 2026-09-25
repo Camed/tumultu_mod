@@ -1,0 +1,174 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:shaping_shard",
+          "weight": 1000
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:growth_shard",
+          "weight": 500
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:heightening_shard",
+          "weight": 150
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:infusion_shard",
+          "weight": 100
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:twisting_shard",
+          "weight": 40
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:cleansing_shard",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:endfusing_shard",
+          "weight": 15,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:severing_shard",
+          "weight": 10,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:peaking_shard",
+          "weight": 3,
+          "quality": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:weaving_shard",
+          "weight": 1,
+          "quality": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:divine_shard",
+          "weight": 1,
+          "quality": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:rebinding_ashes",
+          "weight": 3,
+          "quality": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:empowering_gem",
+          "weight": 15,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:imbuing_shard",
+          "weight": 10,
+          "quality": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_fortune",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_physical_defense",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_dot_general",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_sustenance",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_mining_traversal",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_ranged_utility",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_bleed",
+          "weight": 20
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_poison",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_elemental_offense",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_critical",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_elemental_defense",
+          "weight": 25
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_mining_bonus",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_mobility",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_life",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_mining_speed",
+          "weight": 80
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_armor_stats",
+          "weight": 150
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tumultu:recipe_physical_offense",
+          "weight": 150
+        }
+      ]
+    }
+  ]
+}

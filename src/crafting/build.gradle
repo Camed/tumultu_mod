@@ -1,0 +1,12 @@
+// Base config (java-library, net.neoforged.moddev, toolchain) comes from the root build.gradle's
+// subprojects { } block. This just adds what's specific to this domain.
+dependencies {
+    // CraftingBenchScreen/CraftingBenchMenu/ShardStashMenu need AffixData/AffixDefinition/
+    // BenchCrafting etc. and TumultuRegistries/TumultuDataComponents/TumultuTags/TumultuRecipeItems
+    // (com.tumultu.registry, physically inside this same :affix module - see settings.gradle).
+    implementation project(':affix')
+
+    // CraftingBenchMenu/ShardStashMenu reference specific currency (shard) items directly
+    // (CurrencyItems.CLEANSING_SHARD etc.).
+    implementation project(':currency')
+}

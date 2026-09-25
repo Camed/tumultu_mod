@@ -1,0 +1,29 @@
+{
+  "type": "prefix",
+  "display_name": "Swift",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.03,
+      "max_value": 0.06
+    },
+    {
+      "min_value": 0.06,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.11,
+      "max_value": 0.15
+    }
+  ],
+  "weight": 15,
+  "group": "curio_ring_movement_speed",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "mobility"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "prefix",
+  "display_name": "Sharpened",
+  "effect": {
+    "type": "flat_physical_damage"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.1,
+      "max_value": 4.0
+    },
+    {
+      "min_value": 4.1,
+      "max_value": 6.0
+    },
+    {
+      "min_value": 6.1,
+      "max_value": 8.0
+    }
+  ],
+  "weight": 18,
+  "group": "curio_amulet_flat_physical",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "physical_offense"
+}

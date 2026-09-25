@@ -1,0 +1,33 @@
+{
+  "type": "prefix",
+  "display_name": "Swift",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.11,
+      "max_value": 0.14
+    },
+    {
+      "min_value": 0.14,
+      "max_value": 0.18
+    },
+    {
+      "min_value": 0.19,
+      "max_value": 0.25
+    },
+    {
+      "min_value": 0.26,
+      "max_value": 0.32
+    }
+  ],
+  "weight": 15,
+  "group": "curio_amulet_movement_speed",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "mobility"
+}

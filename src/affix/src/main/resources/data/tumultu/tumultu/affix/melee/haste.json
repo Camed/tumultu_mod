@@ -1,0 +1,15 @@
+{
+  "type": "suffix",
+  "display_name": "of Haste",
+  "effect": { "type": "attribute", "attribute": "minecraft:attack_speed" },
+  "tiers": [
+    { "min_value": 0.5, "max_value": 1.0 },
+    { "min_value": 1.0, "max_value": 1.5 },
+    { "min_value": 1.5, "max_value": 2.0, "applicable_tags": ["tumultu:tier2_weapons", "tumultu:tier1_weapons"] },
+    { "min_value": 2.0, "max_value": 2.5, "applicable_tags": ["tumultu:tier1_weapons"] }
+  ],
+  "weight": 25,
+  "group": "attack_speed",
+  "applicable_tags": ["minecraft:swords", "minecraft:axes"],
+  "craft_category": "physical_offense"
+}

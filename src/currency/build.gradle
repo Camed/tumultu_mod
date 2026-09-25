@@ -1,0 +1,8 @@
+// Base config (java-library, net.neoforged.moddev, toolchain) comes from the root build.gradle's
+// subprojects { } block. This just adds what's specific to this domain.
+dependencies {
+    // AbstractShard/DivineShard/WeavingShard/RebindingAshesShard etc. need AffixDefinition/AffixData
+    // and TumultuRegistries/TumultuDataComponents/TumultuTags/TumultuUniqueItems (com.tumultu.registry,
+    // physically inside this same :affix module - see settings.gradle).
+    implementation project(':affix')
+}

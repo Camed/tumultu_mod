@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "#": "tumultu:recipe_mining_traversal"
+  },
+  "pattern": [
+    "DDD",
+    "D#D",
+    "DDD"
+  ],
+  "result": {
+    "id": "tumultu:recipe_mining_traversal",
+    "count": 2
+  }
+}

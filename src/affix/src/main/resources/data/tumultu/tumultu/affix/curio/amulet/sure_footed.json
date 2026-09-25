@@ -1,0 +1,32 @@
+{
+  "type": "prefix",
+  "display_name": "Sure-Footed",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:step_height"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.25
+    },
+    {
+      "min_value": 0.26,
+      "max_value": 0.4
+    },
+    {
+      "min_value": 0.41,
+      "max_value": 0.55
+    },
+    {
+      "min_value": 0.56,
+      "max_value": 0.7
+    }
+  ],
+  "weight": 12,
+  "group": "curio_amulet_step_height",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "mobility"
+}

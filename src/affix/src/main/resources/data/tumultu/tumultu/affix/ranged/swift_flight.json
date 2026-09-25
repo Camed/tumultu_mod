@@ -1,0 +1,27 @@
+{
+  "type": "prefix",
+  "display_name": "Swift",
+  "effect": {
+    "type": "projectile_speed_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.3
+    },
+    {
+      "min_value": 0.3,
+      "max_value": 0.45
+    }
+  ],
+  "weight": 18,
+  "group": "projectile_speed_percent",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "ranged_utility"
+}

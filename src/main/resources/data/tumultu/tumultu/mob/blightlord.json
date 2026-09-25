@@ -1,0 +1,16 @@
+{
+  "tier": 2,
+  "max_health": 200.0,
+  "attack_damage": 18.0,
+  "armor": 12.0,
+  "movement_speed": 0.24,
+  "follow_range": 32.0,
+  "knockback_resistance": 0.6,
+  "xp_reward": 150,
+  "fire_resistance": 0.2,
+  "cold_resistance": 0.2,
+  "lightning_resistance": 0.2,
+  "poison_chance_on_hit": 1.0,
+  "poison_damage_per_second": 3.0,
+  "poison_duration_ticks": 100
+}

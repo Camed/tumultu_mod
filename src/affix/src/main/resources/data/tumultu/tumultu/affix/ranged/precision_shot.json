@@ -1,0 +1,27 @@
+{
+  "type": "suffix",
+  "display_name": "of Precision",
+  "effect": {
+    "type": "crit_chance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.18
+    },
+    {
+      "min_value": 0.18,
+      "max_value": 0.28
+    }
+  ],
+  "weight": 18,
+  "group": "crit_chance",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "critical"
+}

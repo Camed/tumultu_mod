@@ -1,0 +1,39 @@
+{
+  "type": "suffix",
+  "display_name": "of the Feather",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:fall_damage_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": -0.15,
+      "max_value": -0.05
+    },
+    {
+      "min_value": -0.3,
+      "max_value": -0.15
+    },
+    {
+      "min_value": -0.4,
+      "max_value": -0.3,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": -0.5,
+      "max_value": -0.4,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "fall_damage",
+  "applicable_tags": [
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "armor_stats"
+}

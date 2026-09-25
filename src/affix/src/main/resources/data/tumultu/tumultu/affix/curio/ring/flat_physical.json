@@ -1,0 +1,23 @@
+{
+  "type": "prefix",
+  "display_name": "Sharpened",
+  "effect": {
+    "type": "flat_physical_damage"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 3.0
+    }
+  ],
+  "weight": 18,
+  "group": "curio_ring_flat_physical",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "physical_offense"
+}

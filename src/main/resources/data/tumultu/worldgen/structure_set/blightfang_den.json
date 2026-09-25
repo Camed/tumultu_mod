@@ -1,0 +1,12 @@
+{
+  "structures": [
+    { "structure": "tumultu:blightfang_den", "weight": 1 }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 987432101,
+    "spacing": 32,
+    "separation": 8,
+    "frequency": 1.0
+  }
+}

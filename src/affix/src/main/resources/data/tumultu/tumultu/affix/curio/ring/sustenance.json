@@ -1,0 +1,27 @@
+{
+  "type": "suffix",
+  "display_name": "of Sustenance",
+  "effect": {
+    "type": "hunger_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.3
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.7
+    },
+    {
+      "min_value": 0.71,
+      "max_value": 1.0
+    }
+  ],
+  "weight": 12,
+  "group": "curio_ring_hunger_on_kill",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "sustenance"
+}

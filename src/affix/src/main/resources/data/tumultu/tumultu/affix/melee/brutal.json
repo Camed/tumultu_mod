@@ -1,0 +1,39 @@
+{
+  "type": "prefix",
+  "display_name": "Brutal",
+  "effect": {
+    "type": "physical_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.15
+    },
+    {
+      "min_value": 0.15,
+      "max_value": 0.2,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.3,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 25,
+  "group": "physical_damage_percent",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "physical_offense"
+}

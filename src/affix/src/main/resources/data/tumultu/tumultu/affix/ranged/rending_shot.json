@@ -1,0 +1,27 @@
+{
+  "type": "prefix",
+  "display_name": "Rending",
+  "effect": {
+    "type": "chance_to_bleed"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.18
+    },
+    {
+      "min_value": 0.18,
+      "max_value": 0.25
+    }
+  ],
+  "weight": 15,
+  "group": "chance_to_bleed",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "bleed"
+}

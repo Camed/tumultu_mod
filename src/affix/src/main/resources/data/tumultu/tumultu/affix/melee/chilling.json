@@ -1,0 +1,40 @@
+{
+  "type": "prefix",
+  "display_name": "Chilling",
+  "effect": {
+    "type": "flat_elemental_damage",
+    "element": "cold"
+  },
+  "tiers": [
+    {
+      "min_value": 2.0,
+      "max_value": 4.0
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 7.0
+    },
+    {
+      "min_value": 7.0,
+      "max_value": 10.0,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 10.0,
+      "max_value": 15.0,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 18,
+  "group": "flat_cold_damage",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "elemental_offense"
+}

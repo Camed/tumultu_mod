@@ -1,0 +1,21 @@
+{
+  "type": "suffix",
+  "display_name": "of Hunger's Haste",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.10,
+      "max_value": 0.10
+    }
+  ],
+  "weight": 1,
+  "group": "unique_devourer_movement_speed",
+  "applicable_tags": [
+    "tumultu:devourer"
+  ],
+  "craft_category": "mobility"
+}

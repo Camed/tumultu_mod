@@ -1,0 +1,27 @@
+{
+  "type": "prefix",
+  "display_name": "Piercing",
+  "effect": {
+    "type": "physical_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.18
+    },
+    {
+      "min_value": 0.18,
+      "max_value": 0.28
+    }
+  ],
+  "weight": 25,
+  "group": "physical_damage_percent",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "physical_offense"
+}

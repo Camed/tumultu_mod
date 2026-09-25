@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tumultu:block/crafting_bench_north",
+    "up": "tumultu:block/crafting_bench_top",
+    "down": "tumultu:block/crafting_bench_bottom",
+    "north": "tumultu:block/crafting_bench_north",
+    "south": "tumultu:block/crafting_bench_south",
+    "east": "tumultu:block/crafting_bench_east",
+    "west": "tumultu:block/crafting_bench_west"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "type": "suffix",
+  "display_name": "of Sustenance",
+  "effect": {
+    "type": "hunger_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 0.4,
+      "max_value": 0.6
+    },
+    {
+      "min_value": 0.61,
+      "max_value": 0.8
+    },
+    {
+      "min_value": 0.81,
+      "max_value": 1.2
+    },
+    {
+      "min_value": 1.2,
+      "max_value": 1.6
+    }
+  ],
+  "weight": 12,
+  "group": "curio_amulet_hunger_on_kill",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "sustenance"
+}

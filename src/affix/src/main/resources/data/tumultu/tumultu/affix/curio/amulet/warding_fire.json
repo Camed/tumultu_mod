@@ -1,0 +1,32 @@
+{
+  "type": "suffix",
+  "display_name": "of Fire Warding",
+  "effect": {
+    "type": "elemental_resistance",
+    "element": "fire"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.11
+    },
+    {
+      "min_value": 0.12,
+      "max_value": 0.18
+    },
+    {
+      "min_value": 0.18,
+      "max_value": 0.24
+    },
+    {
+      "min_value": 0.25,
+      "max_value": 0.31
+    }
+  ],
+  "weight": 15,
+  "group": "curio_amulet_fire_resistance",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "elemental_defense"
+}

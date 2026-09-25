@@ -1,0 +1,42 @@
+{
+  "type": "prefix",
+  "display_name": "Warding",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:armor"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 3.0
+    },
+    {
+      "min_value": 3.0,
+      "max_value": 4.0,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 5.0,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 30,
+  "group": "armor_flat",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:chest_armor",
+    "minecraft:leg_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "armor_stats"
+}

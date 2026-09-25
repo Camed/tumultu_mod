@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "#": "tumultu:recipe_bleed"
+  },
+  "pattern": [
+    "DDD",
+    "D#D",
+    "DDD"
+  ],
+  "result": {
+    "id": "tumultu:recipe_bleed",
+    "count": 2
+  }
+}

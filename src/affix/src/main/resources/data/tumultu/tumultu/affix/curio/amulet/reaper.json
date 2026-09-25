@@ -1,0 +1,31 @@
+{
+  "type": "suffix",
+  "display_name": "of the Reaper",
+  "effect": {
+    "type": "life_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 0.5,
+      "max_value": 1.4
+    },
+    {
+      "min_value": 1.5,
+      "max_value": 2.4
+    },
+    {
+      "min_value": 2.5,
+      "max_value": 3.4
+    },
+    {
+      "min_value": 3.5,
+      "max_value": 5.0
+    }
+  ],
+  "weight": 15,
+  "group": "curio_amulet_life_on_kill",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "life"
+}

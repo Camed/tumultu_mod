@@ -1,0 +1,20 @@
+{
+  "type": "suffix",
+  "display_name": "of Grounding",
+  "effect": {
+    "type": "elemental_resistance",
+    "element": "fire"
+  },
+  "tiers": [
+    {
+      "min_value": 0.10,
+      "max_value": 0.10
+    }
+  ],
+  "weight": 1,
+  "group": "unique_reversed_forces_fire_resistance",
+  "applicable_tags": [
+    "tumultu:reversed_forces"
+  ],
+  "craft_category": "elemental_defense"
+}

@@ -1,0 +1,39 @@
+{
+  "type": "suffix",
+  "display_name": "of Precision",
+  "effect": {
+    "type": "crit_chance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.1
+    },
+    {
+      "min_value": 0.1,
+      "max_value": 0.15
+    },
+    {
+      "min_value": 0.15,
+      "max_value": 0.2,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.3,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "crit_chance",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "critical"
+}

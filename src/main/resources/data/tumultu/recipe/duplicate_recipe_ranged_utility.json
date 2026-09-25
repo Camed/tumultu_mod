@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "D": "minecraft:diamond",
+    "#": "tumultu:recipe_ranged_utility"
+  },
+  "pattern": [
+    "DDD",
+    "D#D",
+    "DDD"
+  ],
+  "result": {
+    "id": "tumultu:recipe_ranged_utility",
+    "count": 2
+  }
+}

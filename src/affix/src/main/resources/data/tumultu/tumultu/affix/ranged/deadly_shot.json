@@ -1,0 +1,27 @@
+{
+  "type": "suffix",
+  "display_name": "of the Deadeye",
+  "effect": {
+    "type": "crit_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.15,
+      "max_value": 0.25
+    },
+    {
+      "min_value": 0.25,
+      "max_value": 0.4
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.6
+    }
+  ],
+  "weight": 18,
+  "group": "crit_damage_percent",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "critical"
+}

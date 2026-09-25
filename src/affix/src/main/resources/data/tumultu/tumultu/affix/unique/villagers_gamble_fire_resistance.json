@@ -1,0 +1,20 @@
+{
+  "type": "suffix",
+  "display_name": "of the Gamble",
+  "effect": {
+    "type": "elemental_resistance",
+    "element": "fire"
+  },
+  "tiers": [
+    {
+      "min_value": -0.20,
+      "max_value": 0.20
+    }
+  ],
+  "weight": 1,
+  "group": "unique_villagers_gamble_fire_resistance",
+  "applicable_tags": [
+    "tumultu:villagers_gamble"
+  ],
+  "craft_category": "elemental_defense"
+}

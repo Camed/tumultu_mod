@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of Tempered Blows",
+  "effect": {
+    "type": "crit_damage_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": -0.50,
+      "max_value": -0.50
+    }
+  ],
+  "weight": 1,
+  "group": "unique_crown_of_stability_crit_damage_multiplier",
+  "applicable_tags": [
+    "tumultu:crown_of_stability"
+  ],
+  "craft_category": "critical"
+}

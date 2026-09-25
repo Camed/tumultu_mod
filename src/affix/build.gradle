@@ -1,0 +1,12 @@
+// Base config (java-library, net.neoforged.moddev, toolchain) comes from the root build.gradle's
+// subprojects { } block. This just adds what's specific to this domain.
+dependencies {
+    // AffixEffectApplier/TumultuTags/TumultuItemsRegistry/TumultuUniqueItems apply/reference
+    // curio-slot attribute modifiers and tags directly via Curios' own API.
+    implementation "maven.modrinth:curios:${rootProject.curios_version}"
+
+    // TumultuUniqueItems (see this module's own com.tumultu.registry package) registers the unique
+    // domain's concrete item classes - `unique` is a true leaf (no dependency back on affix), so
+    // this doesn't reintroduce a cycle.
+    implementation project(':unique')
+}

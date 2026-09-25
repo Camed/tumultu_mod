@@ -1,0 +1,17 @@
+{
+  "has_precipitation": true,
+  "temperature": 0.8,
+  "downfall": 0.4,
+  "effects": {
+    "water_color": 4873507
+  },
+  "carvers": [],
+  "features": [[], [], [], [], [], [], [], [], [], [], []],
+  "spawners": {
+    "monster": [
+      { "type": "tumultu:blightfang", "weight": 200, "minCount": 1, "maxCount": 3 },
+      { "type": "tumultu:blightbone", "weight": 200, "minCount": 1, "maxCount": 3 }
+    ]
+  },
+  "spawn_costs": {}
+}

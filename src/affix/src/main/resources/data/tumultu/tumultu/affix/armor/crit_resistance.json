@@ -1,0 +1,39 @@
+{
+  "type": "suffix",
+  "display_name": "of the Warden",
+  "effect": {
+    "type": "crit_damage_reduction"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.3
+    },
+    {
+      "min_value": 0.3,
+      "max_value": 0.4,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ]
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.5,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "crit_damage_reduction",
+  "applicable_tags": [
+    "minecraft:chest_armor",
+    "minecraft:leg_armor"
+  ],
+  "craft_category": "physical_defense"
+}

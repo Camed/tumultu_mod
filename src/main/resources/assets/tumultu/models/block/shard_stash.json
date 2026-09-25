@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "tumultu:block/shard_stash_north",
+    "up": "tumultu:block/shard_stash_top",
+    "down": "tumultu:block/shard_stash_bottom",
+    "north": "tumultu:block/shard_stash_north",
+    "south": "tumultu:block/shard_stash_south",
+    "east": "tumultu:block/shard_stash_east",
+    "west": "tumultu:block/shard_stash_west"
+  }
+}

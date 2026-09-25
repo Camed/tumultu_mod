@@ -1,0 +1,27 @@
+{
+  "type": "prefix",
+  "display_name": "Festering",
+  "effect": {
+    "type": "bleed_damage_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": 0.15,
+      "max_value": 0.25
+    },
+    {
+      "min_value": 0.25,
+      "max_value": 0.35
+    },
+    {
+      "min_value": 0.35,
+      "max_value": 0.5
+    }
+  ],
+  "weight": 15,
+  "group": "bleed_damage_multiplier",
+  "applicable_tags": [
+    "tumultu:ranged_weapons"
+  ],
+  "craft_category": "bleed"
+}

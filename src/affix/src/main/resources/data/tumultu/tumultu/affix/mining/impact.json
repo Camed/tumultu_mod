@@ -1,0 +1,41 @@
+{
+  "type": "suffix",
+  "display_name": "of Impact",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:attack_damage"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 2.0
+    },
+    {
+      "min_value": 2.0,
+      "max_value": 3.0
+    },
+    {
+      "min_value": 3.0,
+      "max_value": 4.0,
+      "applicable_tags": [
+        "tumultu:tier2_tools",
+        "tumultu:tier1_tools"
+      ]
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 5.0,
+      "applicable_tags": [
+        "tumultu:tier1_tools"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "flat_damage",
+  "applicable_tags": [
+    "minecraft:pickaxes",
+    "minecraft:shovels",
+    "minecraft:hoes"
+  ],
+  "craft_category": "mining_bonus"
+}

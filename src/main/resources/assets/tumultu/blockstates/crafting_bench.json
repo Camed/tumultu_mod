@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "tumultu:block/crafting_bench" }
+  }
+}

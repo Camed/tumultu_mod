@@ -1,0 +1,39 @@
+{
+  "type": "prefix",
+  "display_name": "Elemental",
+  "effect": {
+    "type": "elemental_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.2
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.3
+    },
+    {
+      "min_value": 0.3,
+      "max_value": 0.4,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ]
+    },
+    {
+      "min_value": 0.4,
+      "max_value": 0.5,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ]
+    }
+  ],
+  "weight": 15,
+  "group": "elemental_damage_percent",
+  "applicable_tags": [
+    "minecraft:swords",
+    "minecraft:axes"
+  ],
+  "craft_category": "elemental_offense"
+}

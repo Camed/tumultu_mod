@@ -1,0 +1,32 @@
+{
+  "type": "prefix",
+  "display_name": "Vital",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:max_health"
+  },
+  "tiers": [
+    {
+      "min_value": 2.0,
+      "max_value": 4.0
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 8.0
+    },
+    {
+      "min_value": 8.0,
+      "max_value": 11.0
+    },
+    {
+      "min_value": 11.0,
+      "max_value": 16.0
+    }
+  ],
+  "weight": 20,
+  "group": "curio_amulet_max_health",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "life"
+}

@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of Immunity",
+  "effect": {
+    "type": "cannot_be_poisoned"
+  },
+  "tiers": [
+    {
+      "min_value": 1.0,
+      "max_value": 1.0
+    }
+  ],
+  "weight": 2,
+  "group": "cannot_be_poisoned",
+  "applicable_tags": [
+    "minecraft:leg_armor"
+  ],
+  "craft_category": "physical_defense"
+}

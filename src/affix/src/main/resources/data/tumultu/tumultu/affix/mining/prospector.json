@@ -1,0 +1,26 @@
+{
+  "type": "suffix",
+  "display_name": "of the Prospector",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:luck"
+  },
+  "tiers": [
+    {
+      "min_value": 0.5,
+      "max_value": 1.0
+    },
+    {
+      "min_value": 1.0,
+      "max_value": 1.5
+    }
+  ],
+  "weight": 20,
+  "group": "luck",
+  "applicable_tags": [
+    "minecraft:pickaxes",
+    "minecraft:shovels",
+    "minecraft:hoes"
+  ],
+  "craft_category": "mining_bonus"
+}

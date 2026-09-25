@@ -1,0 +1,21 @@
+{
+  "type": "suffix",
+  "display_name": "of Momentum",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:movement_speed",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.05
+    }
+  ],
+  "weight": 1,
+  "group": "unique_reversed_forces_movement_speed",
+  "applicable_tags": [
+    "tumultu:reversed_forces"
+  ],
+  "craft_category": "mobility"
+}

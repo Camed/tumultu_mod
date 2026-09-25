@@ -1,0 +1,16 @@
+// Base config (java-library, net.neoforged.moddev, toolchain) comes from the root build.gradle's
+// subprojects { } block. This just adds what's specific to this domain.
+dependencies {
+    // AbstractTumultuMonster/CombatEventHandler/PlayerCombatStats etc. - see TieredCombatant.
+    implementation project(':combat')
+
+    // AbstractTumultuMonster/TumultuMobRegistries/BlightlandsBlocks/BlightlandsBlockEntities need
+    // AffixDefinition, and TumultuRegistries/TumultuBlocksRegistry/TumultuBlockEntitiesRegistry/
+    // TumultuModelLayers (com.tumultu.registry, physically inside this same :affix module - see
+    // settings.gradle). `combat` already depends on `affix` too, but Gradle's `implementation`
+    // isn't transitive, so this needs its own explicit declaration.
+    implementation project(':affix')
+
+    // TerraBlender - BlightlandsRegion registers a biome region directly against its API.
+    implementation "maven.modrinth:terrablender:${rootProject.terrablender_version}"
+}

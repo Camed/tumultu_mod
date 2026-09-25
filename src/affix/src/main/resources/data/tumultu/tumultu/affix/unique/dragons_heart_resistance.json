@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of the Dragon",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": -0.50,
+      "max_value": -0.50
+    }
+  ],
+  "weight": 1,
+  "group": "unique_dragons_heart_resistance",
+  "applicable_tags": [
+    "tumultu:dragons_heart"
+  ],
+  "craft_category": "elemental_defense"
+}
