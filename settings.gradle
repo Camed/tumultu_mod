@@ -8,26 +8,6 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
 
-// Domain subprojects - see build.gradle's `subprojects { }` block for their shared configuration.
-// Java packages under these are unaffected by which module they live in (e.g. `affix/` still holds
-// `com.tumultu.affix.*`, matching its package exactly) - only compile/resource boundaries change.
-//
-// `affix` also carries every shared registry "bucket" (TumultuItemsRegistry.ITEMS,
-// TumultuBlocksRegistry.BLOCKS, TumultuBlockEntitiesRegistry.BLOCK_ENTITIES) plus the classes that
-// need AffixDefinition/AffixData as compile-time types (TumultuRegistries, TumultuDataComponents,
-// TumultuTags, TumultuModelLayers, TumultuRecipeItems, TumultuUniqueItems) - `affix` is the one
-// module every other domain already depends on, so it's the natural place for anything that would
-// otherwise need to reach back into root (which depends on every domain, so no domain can depend
-// back on it) or into a sibling domain it has no other reason to depend on. Each domain that has a
-// block/block-entity with a self-referencing constructor (crafting's CraftingBlocks/
-// CraftingBlockEntities, blightlands' BlightlandsBlocks/BlightlandsBlockEntities/
-// TumultuMobRegistries) registers its own concrete entries into these shared buckets from within
-// its own module, instead of root declaring them centrally the way TumultuBlocks/
-// TumultuBlockEntities/TumultuMenus originally did.
-//
-// Each lives physically under src/ (as a sibling of src/main/src/test, the root module's own
-// sources) rather than dangling at the repo root - Gradle's logical project name (":affix") and its
-// physical directory are independent, so `projectDir` is remapped below for each one.
 include 'affix'
 include 'unique'
 include 'combat'
