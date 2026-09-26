@@ -84,7 +84,7 @@ public class AffixEffectApplier {
 
         stack.set(DataComponents.ATTRIBUTE_MODIFIERS, builder.build());
         if (curioBuilder != null) {
-            CuriosDataComponents.updateCurioAttributeModifiers(stack, curioBuilder.build());
+            stack.set(CuriosDataComponents.ATTRIBUTE_MODIFIERS, curioBuilder.build());
         }
     }
 
