@@ -46,6 +46,17 @@ public class TumultuCreativeTabs {
                         for (var recipeItem : TumultuRecipeItems.ALL) {
                             output.accept(recipeItem.get());
                         }
+                        output.accept(BlightlandsBlocks.BLIGHTED_LOG_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_WOOD_ITEM.get());
+                        output.accept(BlightlandsBlocks.STRIPPED_BLIGHTED_LOG_ITEM.get());
+                        output.accept(BlightlandsBlocks.STRIPPED_BLIGHTED_WOOD_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_PLANKS_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_LEAVES_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_SAPLING_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_DOOR_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_SIGN_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_BOAT_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_CHEST_BOAT_ITEM.get());
                     })
                     .build()
     );

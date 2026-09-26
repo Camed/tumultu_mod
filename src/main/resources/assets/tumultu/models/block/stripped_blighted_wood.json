@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tumultu:block/stripped_blighted_log",
+    "side": "tumultu:block/stripped_blighted_log"
+  }
+}

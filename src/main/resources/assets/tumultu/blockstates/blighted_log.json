@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y": { "model": "tumultu:block/blighted_log" },
+    "axis=z": { "model": "tumultu:block/blighted_log", "x": 90 },
+    "axis=x": { "model": "tumultu:block/blighted_log", "x": 90, "y": 90 }
+  }
+}

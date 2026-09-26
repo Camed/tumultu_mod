@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "tumultu:block/blighted_leaves"
+  }
+}

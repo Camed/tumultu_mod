@@ -12,6 +12,7 @@ import com.tumultu.core.event.AreaMiningEventHandler;
 import com.tumultu.loot.BonusDropHandler;
 import com.tumultu.registry.BlightlandsBlockEntities;
 import com.tumultu.registry.BlightlandsBlocks;
+import com.tumultu.registry.BlightlandsEntityTypes;
 import com.tumultu.registry.CraftingBlockEntities;
 import com.tumultu.registry.CraftingBlocks;
 import com.tumultu.registry.CraftingMenus;
@@ -55,6 +56,8 @@ public class Tumultu {
 
         TumultuEntityTypes.ENTITY_TYPES.register(modBus);
 
+        BlightlandsEntityTypes.ENTITY_TYPES.register(modBus);
+
         // TumultuRecipeItems, TumultuUniqueItems, TumultuItemDefinitions and CurrencyItems each add
         // extra entries into TumultuItemsRegistry.ITEMS as a side effect of their own static
         // initializers (17 recipe items, the Unique items, the generic/spawn-egg items, and the
@@ -95,6 +98,8 @@ public class Tumultu {
         modBus.addListener(TumultuEntityTypes::onEntityAttributeCreation);
 
         modBus.addListener(TumultuEntityTypes::onRegisterSpawnPlacements);
+
+        modBus.addListener(BlightlandsBlocks::onAddBlockEntityBlocks);
 
         modBus.addListener(this::registerTooltipAppenders);
 

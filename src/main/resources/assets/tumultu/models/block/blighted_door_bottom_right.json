@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom_right",
+  "textures": {
+    "bottom": "tumultu:block/blighted_door_bottom",
+    "top": "tumultu:block/blighted_door_top"
+  }
+}

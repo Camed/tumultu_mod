@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "axis=y": { "model": "tumultu:block/stripped_blighted_wood" },
+    "axis=z": { "model": "tumultu:block/stripped_blighted_wood", "x": 90 },
+    "axis=x": { "model": "tumultu:block/stripped_blighted_wood", "x": 90, "y": 90 }
+  }
+}

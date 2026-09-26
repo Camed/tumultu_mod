@@ -5,6 +5,22 @@
   "block.tumultu.shard_stash": "Shard Stash",
   "block.tumultu.blight_idol": "Blight Idol",
 
+  "block.tumultu.blighted_log": "Blighted Log",
+  "block.tumultu.blighted_wood": "Blighted Wood",
+  "block.tumultu.stripped_blighted_log": "Stripped Blighted Log",
+  "block.tumultu.stripped_blighted_wood": "Stripped Blighted Wood",
+  "block.tumultu.blighted_planks": "Blighted Planks",
+  "block.tumultu.blighted_leaves": "Blighted Leaves",
+  "block.tumultu.blighted_sapling": "Blighted Sapling",
+  "block.tumultu.blighted_door": "Blighted Door",
+  "block.tumultu.blighted_sign": "Blighted Sign",
+  "block.tumultu.blighted_wall_sign": "Blighted Sign",
+
+  "item.tumultu.blighted_boat": "Blighted Boat",
+  "item.tumultu.blighted_chest_boat": "Blighted Boat with Chest",
+  "entity.tumultu.blighted_boat": "Blighted Boat",
+  "entity.tumultu.blighted_chest_boat": "Blighted Boat with Chest",
+
   "item.tumultu.shaping_shard": "Shaping Shard",
   "item.tumultu.growth_shard": "Growth Shard",
   "item.tumultu.heightening_shard": "Heightening Shard",
