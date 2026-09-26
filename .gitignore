@@ -475,3 +475,9 @@ repo/
 /logs/latest.log
 /gradle/wrapper/gradle-wrapper.jar
 /gradle/wrapper/gradle-wrapper.properties
+/src/blightlands/build/
+/src/affix/build/
+/src/unique/build/
+/src/currency/build/
+/src/crafting/build/
+/src/combat/build/
