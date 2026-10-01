@@ -129,7 +129,7 @@ neoForge {
             sourceSet(project(':affix').sourceSets.main)
             sourceSet(project(':unique').sourceSets.main)
             sourceSet(project(':combat').sourceSets.main)
-            sourceSet(project(':blightlands').sourceSets.main)
+            sourceSet(project(':zones').sourceSets.main)
             sourceSet(project(':currency').sourceSets.main)
             sourceSet(project(':crafting').sourceSets.main)
         }
@@ -147,7 +147,7 @@ dependencies {
     implementation project(':affix')
     implementation project(':unique')
     implementation project(':combat')
-    implementation project(':blightlands')
+    implementation project(':zones')
     implementation project(':currency')
     implementation project(':crafting')
 
@@ -201,7 +201,7 @@ tasks.named('jar', Jar).configure {
     from(project(':affix').sourceSets.main.output)
     from(project(':unique').sourceSets.main.output)
     from(project(':combat').sourceSets.main.output)
-    from(project(':blightlands').sourceSets.main.output)
+    from(project(':zones').sourceSets.main.output)
     from(project(':currency').sourceSets.main.output)
     from(project(':crafting').sourceSets.main.output)
 }

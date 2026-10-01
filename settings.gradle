@@ -11,13 +11,13 @@ plugins {
 include 'affix'
 include 'unique'
 include 'combat'
-include 'blightlands'
+include 'zones'
 include 'currency'
 include 'crafting'
 
 project(':affix').projectDir = file('src/affix')
 project(':unique').projectDir = file('src/unique')
 project(':combat').projectDir = file('src/combat')
-project(':blightlands').projectDir = file('src/blightlands')
+project(':zones').projectDir = file('src/zones')
 project(':currency').projectDir = file('src/currency')
 project(':crafting').projectDir = file('src/crafting')

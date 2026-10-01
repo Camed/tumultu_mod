@@ -1,6 +1,8 @@
 {
   "itemGroup.tumultu": "Tumultu",
 
+  "tumultu.world_tier.entered": "World Tier %s",
+
   "block.tumultu.crafting_bench": "Crafting Bench",
   "block.tumultu.shard_stash": "Shard Stash",
   "block.tumultu.blight_idol": "Blight Idol",

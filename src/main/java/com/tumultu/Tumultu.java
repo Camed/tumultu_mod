@@ -31,6 +31,10 @@ import com.tumultu.registry.TumultuRegistries;
 import com.tumultu.registry.TumultuUniqueItems;
 import com.tumultu.network.PreviewResultPayload;
 import com.tumultu.worldgen.BlightlandsRegion;
+import com.tumultu.zones.VanillaMobScalingHandler;
+import com.tumultu.zones.WorldTierScalingReloadListener;
+import com.tumultu.zones.ZoneAttachments;
+import com.tumultu.zones.ZoneTickHandler;
 import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -87,6 +91,8 @@ public class Tumultu {
 
         TumultuAttachments.ATTACHMENTS.register(modBus);
 
+        ZoneAttachments.ATTACHMENTS.register(modBus);
+
         TumultuMobEffects.MOB_EFFECTS.register(modBus);
 
         TumultuLootFunctions.LOOT_FUNCTIONS.register(modBus);
@@ -115,7 +121,13 @@ public class Tumultu {
 
         NeoForge.EVENT_BUS.register(BonusDropHandler.class);
 
+        NeoForge.EVENT_BUS.register(ZoneTickHandler.class);
+
+        NeoForge.EVENT_BUS.register(VanillaMobScalingHandler.class);
+
         NeoForge.EVENT_BUS.addListener(TumultuCommands::register);
+
+        NeoForge.EVENT_BUS.addListener(WorldTierScalingReloadListener::onAddReloadListeners);
 
         Regions.register(new BlightlandsRegion(Identifier.fromNamespaceAndPath(MOD_ID, "tier3_biome_region"), 20));
 

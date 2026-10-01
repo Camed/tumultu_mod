@@ -8,9 +8,16 @@ import com.tumultu.combat.TieredCombatant;
 import com.tumultu.mobs.definition.MobDefinition;
 import com.tumultu.registry.TumultuMobRegistries;
 import com.tumultu.registry.TumultuRegistries;
+import com.tumultu.zones.WorldTier;
+import com.tumultu.zones.WorldTierScaling;
+import com.tumultu.zones.WorldTierScalingReloadListener;
+import com.tumultu.zones.ZoneBiomeTags;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.AnimationState;
@@ -111,16 +118,29 @@ public abstract class AbstractTumultuMonster extends Monster implements TieredCo
             return;
         }
 
-        this.tier = definition.tier();
-        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(definition.maxHealth());
+        // definition.tier() itself is no longer what drives difficulty - world position does (see
+        // WorldTier), plus the current biome's own constant on top (ZoneBiomeTags, e.g. blightlands
+        // is tier3_biome so its mobs are always at least tier 3 regardless of how close to spawn
+        // the biome patch happens to generate). Only life/damage/armor/XP scale with this - the rest
+        // of a mob's stats (speed, resistances, poison, etc.) stay exactly what its own
+        // MobDefinition says, same as before.
+        BlockPos pos = this.blockPosition();
+        int worldTier = WorldTier.fromPosition(pos.getX(), pos.getZ());
+        Holder<Biome> biome = level.getBiome(pos);
+        int effectiveTier = Math.min(worldTier + ZoneBiomeTags.constantFor(biome), WorldTier.MAX);
+        WorldTierScaling scaling = WorldTierScalingReloadListener.current();
+        double multiplier = scaling.multiplierFor(effectiveTier);
+
+        this.tier = effectiveTier;
+        this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(definition.maxHealth() * multiplier);
         this.setHealth(this.getMaxHealth());
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(definition.attackDamage());
-        this.getAttribute(Attributes.ARMOR).setBaseValue(definition.armor());
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(definition.attackDamage() * multiplier);
+        this.getAttribute(Attributes.ARMOR).setBaseValue(definition.armor() * multiplier);
         this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(definition.movementSpeed());
         this.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(definition.followRange());
         this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(definition.knockbackResistance());
         this.getAttribute(Attributes.SCALE).setBaseValue(definition.scale());
-        this.xpReward = definition.xpReward();
+        this.xpReward = (int) Math.round(definition.xpReward() * multiplier);
         this.fireResistance = definition.fireResistance();
         this.coldResistance = definition.coldResistance();
         this.lightningResistance = definition.lightningResistance();

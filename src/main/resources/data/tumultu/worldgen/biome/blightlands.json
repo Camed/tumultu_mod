@@ -6,7 +6,23 @@
     "water_color": 4873507
   },
   "carvers": [],
-  "features": [[], [], [], [], [], [], [], [], [], [], []],
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [
+      "tumultu:blighted_tree",
+      "minecraft:patch_grass_plain",
+      "minecraft:patch_dead_bush"
+    ],
+    []
+  ],
   "spawners": {
     "monster": [
       { "type": "tumultu:blightfang", "weight": 200, "minCount": 1, "maxCount": 3 },

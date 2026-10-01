@@ -10,9 +10,12 @@ import com.tumultu.mobs.client.BlightfangRenderer;
 import com.tumultu.mobs.client.BlightlordModel;
 import com.tumultu.mobs.client.BlightlordRenderer;
 import com.tumultu.network.PreviewResultPayload;
+import com.tumultu.registry.BlightlandsEntityTypes;
 import com.tumultu.registry.CraftingMenus;
 import com.tumultu.registry.TumultuEntityTypes;
 import com.tumultu.registry.TumultuModelLayers;
+import net.minecraft.client.model.object.boat.BoatModel;
+import net.minecraft.client.renderer.entity.BoatRenderer;
 import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -37,6 +40,8 @@ public class TumultuClientEvents {
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTFANG, BlightfangModel::createBodyLayer);
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTLORD, BlightlordModel::createBodyLayer);
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTBONE, BlightboneModel::createBodyLayer);
+        event.registerLayerDefinition(TumultuModelLayers.BLIGHTED_BOAT, BoatModel::createBoatModel);
+        event.registerLayerDefinition(TumultuModelLayers.BLIGHTED_CHEST_BOAT, BoatModel::createChestBoatModel);
     }
 
     @SubscribeEvent
@@ -47,6 +52,10 @@ public class TumultuClientEvents {
                 new BlightfangRenderer(context, Identifier.fromNamespaceAndPath(Tumultu.MOD_ID, "textures/entity/blightfang_alpha.png")));
         event.registerEntityRenderer(TumultuEntityTypes.BLIGHTLORD.get(), BlightlordRenderer::new);
         event.registerEntityRenderer(TumultuEntityTypes.BLIGHTBONE.get(), BlightboneRenderer::new);
+        event.registerEntityRenderer(BlightlandsEntityTypes.BLIGHTED_BOAT.get(), context ->
+                new BoatRenderer(context, TumultuModelLayers.BLIGHTED_BOAT));
+        event.registerEntityRenderer(BlightlandsEntityTypes.BLIGHTED_CHEST_BOAT.get(), context ->
+                new BoatRenderer(context, TumultuModelLayers.BLIGHTED_CHEST_BOAT));
     }
 
     @SubscribeEvent

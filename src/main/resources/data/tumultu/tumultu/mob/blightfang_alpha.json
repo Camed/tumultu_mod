@@ -2,7 +2,7 @@
   "tier": 3,
   "max_health": 120.0,
   "attack_damage": 14.0,
-  "armor": 8.0,
+  "armor": 24.0,
   "movement_speed": 0.26,
   "follow_range": 32.0,
   "knockback_resistance": 0.3,

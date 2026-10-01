@@ -13,4 +13,8 @@ public class TumultuModelLayers {
             new ModelLayerLocation(Identifier.fromNamespaceAndPath(TumultuMod.MOD_ID, "blightlord"), "main");
     public static final ModelLayerLocation BLIGHTBONE =
             new ModelLayerLocation(Identifier.fromNamespaceAndPath(TumultuMod.MOD_ID, "blightbone"), "main");
+    public static final ModelLayerLocation BLIGHTED_BOAT =
+            new ModelLayerLocation(Identifier.fromNamespaceAndPath(TumultuMod.MOD_ID, "boat/tumultu_blighted"), "main");
+    public static final ModelLayerLocation BLIGHTED_CHEST_BOAT =
+            new ModelLayerLocation(Identifier.fromNamespaceAndPath(TumultuMod.MOD_ID, "chest_boat/tumultu_blighted"), "main");
 }
