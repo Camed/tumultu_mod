@@ -1,0 +1,55 @@
+{
+  "type": "prefix",
+  "display_name": "Girded",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:armor"
+  },
+  "tiers": [
+    {
+      "min_value": 2.0,
+      "max_value": 3.8
+    },
+    {
+      "min_value": 3.8,
+      "max_value": 5.5,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 5.5,
+      "max_value": 7.2,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 7.2,
+      "max_value": 9.0,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 9.0,
+      "max_value": 10.8,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 10.8,
+      "max_value": 12.5,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 12.5,
+      "max_value": 14.2,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 14.2,
+      "max_value": 16.0,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 15,
+  "group": "curio_belt_armor",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "armor_stats"
+}

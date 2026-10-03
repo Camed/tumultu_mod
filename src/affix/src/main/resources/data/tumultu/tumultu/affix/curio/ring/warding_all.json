@@ -1,0 +1,54 @@
+{
+  "type": "suffix",
+  "display_name": "of the Elements",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.01,
+      "max_value": 0.034
+    },
+    {
+      "min_value": 0.034,
+      "max_value": 0.057,
+      "required_item_level": 8
+    },
+    {
+      "min_value": 0.057,
+      "max_value": 0.081,
+      "required_item_level": 18
+    },
+    {
+      "min_value": 0.081,
+      "max_value": 0.105,
+      "required_item_level": 28
+    },
+    {
+      "min_value": 0.105,
+      "max_value": 0.129,
+      "required_item_level": 38
+    },
+    {
+      "min_value": 0.129,
+      "max_value": 0.153,
+      "required_item_level": 48
+    },
+    {
+      "min_value": 0.153,
+      "max_value": 0.176,
+      "required_item_level": 60
+    },
+    {
+      "min_value": 0.176,
+      "max_value": 0.2,
+      "required_item_level": 72
+    }
+  ],
+  "weight": 8,
+  "group": "curio_ring_all_resistance",
+  "applicable_tags": [
+    "tumultu:rings"
+  ],
+  "craft_category": "elemental_defense"
+}

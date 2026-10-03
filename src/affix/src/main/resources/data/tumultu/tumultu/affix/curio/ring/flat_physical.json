@@ -11,7 +11,38 @@
     },
     {
       "min_value": 2.0,
-      "max_value": 3.0
+      "max_value": 3.0,
+      "required_item_level": 8
+    },
+    {
+      "min_value": 3.0,
+      "max_value": 4.0,
+      "required_item_level": 18
+    },
+    {
+      "min_value": 4.0,
+      "max_value": 5.0,
+      "required_item_level": 28
+    },
+    {
+      "min_value": 5.0,
+      "max_value": 6.0,
+      "required_item_level": 38
+    },
+    {
+      "min_value": 6.0,
+      "max_value": 7.0,
+      "required_item_level": 48
+    },
+    {
+      "min_value": 7.0,
+      "max_value": 8.0,
+      "required_item_level": 60
+    },
+    {
+      "min_value": 8.0,
+      "max_value": 9.0,
+      "required_item_level": 72
     }
   ],
   "weight": 18,

@@ -1,0 +1,55 @@
+{
+  "type": "prefix",
+  "display_name": "Vital",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:max_health"
+  },
+  "tiers": [
+    {
+      "min_value": 3.0,
+      "max_value": 6.6
+    },
+    {
+      "min_value": 6.6,
+      "max_value": 10.2,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 10.2,
+      "max_value": 13.9,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 13.9,
+      "max_value": 17.5,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 17.5,
+      "max_value": 21.1,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 21.1,
+      "max_value": 24.8,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 24.8,
+      "max_value": 28.4,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 28.4,
+      "max_value": 32.0,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 20,
+  "group": "curio_belt_max_health",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "life"
+}

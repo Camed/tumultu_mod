@@ -39,10 +39,15 @@ public abstract class AbstractShard extends Item implements StashApplicable {
     }
 
     protected boolean isAffixable(ItemStack stack) {
-        return stack.is(TumultuTags.AFFIXABLE);
+        return stack.is(TumultuTags.AFFIXABLE) && stack.has(TumultuDataComponents.ITEM_LEVEL.get());
     }
 
     protected boolean isModifiable(AffixData data) {
         return data.isModifiable();
+    }
+
+    protected int itemLevelOf(ItemStack stack) {
+        Integer level = stack.get(TumultuDataComponents.ITEM_LEVEL.get());
+        return level != null ? level : 0;
     }
 }

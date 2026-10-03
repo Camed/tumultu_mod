@@ -43,6 +43,7 @@ public class TwistingShard extends AbstractShard {
                 registryAccess,
                 target,
                 data,
+                itemLevelOf(target),
                 level.getRandom()
         );
 

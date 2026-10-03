@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tumultu:block/blighted_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tumultu:block/blighted_pressure_plate_down"
+    }
+  }
+}

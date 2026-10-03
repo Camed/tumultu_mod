@@ -41,7 +41,7 @@ public class ShapingShard extends AbstractShard {
 
         var registryAccess = level.registryAccess();
         AffixData magicBase = new AffixData(ItemRarity.MAGIC, List.of(), false);
-        AffixData newData = AffixRoller.addRandomAffix(registryAccess, target, magicBase, level.getRandom());
+        AffixData newData = AffixRoller.addRandomAffix(registryAccess, target, magicBase, itemLevelOf(target), level.getRandom());
         if (newData == magicBase) return false;
 
         setAffixData(target, newData, registryAccess, level.getRandom());

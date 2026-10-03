@@ -25,6 +25,13 @@ public class TumultuItemDefinitions {
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(1))
     );
+
+    public static final Supplier<Item> BELT = TumultuItemsRegistry.ITEMS.register(
+            "belt",
+            registryName -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, registryName))
+                    .stacksTo(1))
+    );
     public static final Supplier<Item> BLIGHTFANG_SPAWN_EGG = spawnEgg("blightfang_spawn_egg", TumultuEntityTypes.BLIGHTFANG);
     public static final Supplier<Item> BLIGHTFANG_ALPHA_SPAWN_EGG = spawnEgg("blightfang_alpha_spawn_egg", TumultuEntityTypes.BLIGHTFANG_ALPHA);
     public static final Supplier<Item> BLIGHTLORD_SPAWN_EGG = spawnEgg("blightlord_spawn_egg", TumultuEntityTypes.BLIGHTLORD);

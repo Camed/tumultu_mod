@@ -7,26 +7,56 @@
   "tiers": [
     {
       "min_value": 0.03,
-      "max_value": 0.05
+      "max_value": 0.06
     },
     {
-      "min_value": 0.05,
-      "max_value": 0.08
+      "min_value": 0.06,
+      "max_value": 0.09,
+      "required_item_level": 12
     },
     {
-      "min_value": 0.08,
-      "max_value": 0.11,
+      "min_value": 0.09,
+      "max_value": 0.12,
+      "required_item_level": 23
+    },
+    {
+      "min_value": 0.12,
+      "max_value": 0.15,
+      "required_item_level": 34
+    },
+    {
+      "min_value": 0.15,
+      "max_value": 0.18,
       "applicable_tags": [
         "tumultu:tier2_armor",
         "tumultu:tier1_armor"
-      ]
+      ],
+      "required_item_level": 44
     },
     {
-      "min_value": 0.11,
-      "max_value": 0.15,
+      "min_value": 0.18,
+      "max_value": 0.21,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 55
+    },
+    {
+      "min_value": 0.21,
+      "max_value": 0.24,
       "applicable_tags": [
         "tumultu:tier1_armor"
-      ]
+      ],
+      "required_item_level": 67
+    },
+    {
+      "min_value": 0.24,
+      "max_value": 0.27,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 80
     }
   ],
   "weight": 3,

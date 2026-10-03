@@ -152,8 +152,10 @@ public class CraftingBenchScreen extends AbstractContainerScreen<CraftingBenchMe
             return;
         }
 
+        Integer itemLevel = targetStack.get(TumultuDataComponents.ITEM_LEVEL.get());
         List<BenchCrafting.CraftableAffix> current =
-                BenchCrafting.validCategoryAffixes(minecraft.level.registryAccess(), targetStack, existing, category.get());
+                BenchCrafting.validCategoryAffixes(minecraft.level.registryAccess(), targetStack, existing, category.get(),
+                        itemLevel != null ? itemLevel : 0);
         affixCount = current.size();
         scrollOffset = affixCount <= VISIBLE_ROWS ? 0 : Math.max(0, Math.min(scrollOffset, affixCount - VISIBLE_ROWS));
 

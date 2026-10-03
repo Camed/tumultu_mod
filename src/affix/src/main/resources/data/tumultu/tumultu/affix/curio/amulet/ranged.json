@@ -7,19 +7,42 @@
   "tiers": [
     {
       "min_value": 0.04,
-      "max_value": 0.08
+      "max_value": 0.09
     },
     {
       "min_value": 0.09,
-      "max_value": 0.15
+      "max_value": 0.14,
+      "required_item_level": 13
     },
     {
-      "min_value": 0.16,
-      "max_value": 0.19
+      "min_value": 0.14,
+      "max_value": 0.19,
+      "required_item_level": 24
     },
     {
       "min_value": 0.19,
-      "max_value": 0.24
+      "max_value": 0.24,
+      "required_item_level": 35
+    },
+    {
+      "min_value": 0.24,
+      "max_value": 0.29,
+      "required_item_level": 45
+    },
+    {
+      "min_value": 0.29,
+      "max_value": 0.34,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.34,
+      "max_value": 0.39,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.39,
+      "max_value": 0.44,
+      "required_item_level": 80
     }
   ],
   "weight": 15,

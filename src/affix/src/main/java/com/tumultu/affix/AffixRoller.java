@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 public class AffixRoller {
 
-    public static AffixData rollForRarity(RegistryAccess registryAccess, ItemStack stack, ItemRarity rarity, RandomSource random) {
+    public static AffixData rollForRarity(RegistryAccess registryAccess, ItemStack stack, ItemRarity rarity, int itemLevel, RandomSource random) {
         if (rarity == ItemRarity.NORMAL) {
             return AffixData.EMPTY;
         }
@@ -28,34 +28,30 @@ public class AffixRoller {
         List<RolledAffix> rolled = new ArrayList<>();
         Set<String> usedGroups = new HashSet<>();
 
-        rollAffixes(registry, stack, AffixType.PREFIX, targetPrefixes, usedGroups, rolled, random);
-        rollAffixes(registry, stack, AffixType.SUFFIX, targetSuffixes, usedGroups, rolled, random);
+        rollAffixes(registry, stack, AffixType.PREFIX, targetPrefixes, itemLevel, usedGroups, rolled, random);
+        rollAffixes(registry, stack, AffixType.SUFFIX, targetSuffixes, itemLevel, usedGroups, rolled, random);
 
         return new AffixData(rarity, List.copyOf(rolled), rarity == ItemRarity.ENDFUSED);
     }
 
-    public static AffixData reroll(RegistryAccess registryAccess, ItemStack stack, AffixData existing, RandomSource random) {
+    public static AffixData reroll(RegistryAccess registryAccess, ItemStack stack, AffixData existing, int itemLevel, RandomSource random) {
         return rerollPreservingProtected(registryAccess, stack, existing, existing.rarity(),
-                existing.rarity(), existing.rarity() == ItemRarity.ENDFUSED, random);
+                existing.rarity(), existing.rarity() == ItemRarity.ENDFUSED, itemLevel, random);
     }
 
-    /**
-        Custom endfusing rerolling - modifying item over standard amount of affixes etc.
-     */
-    public static AffixData rerollForEndfusing(RegistryAccess registryAccess, ItemStack stack, AffixData existing, ItemRarity rollRarity, RandomSource random) {
-        return rerollPreservingProtected(registryAccess, stack, existing, rollRarity, ItemRarity.ENDFUSED, true, random);
+    public static AffixData rerollForEndfusing(RegistryAccess registryAccess, ItemStack stack, AffixData existing, ItemRarity rollRarity, int itemLevel, RandomSource random) {
+        return rerollPreservingProtected(registryAccess, stack, existing, rollRarity, ItemRarity.ENDFUSED, true, itemLevel, random);
     }
 
-    /**
-        Some items can have protected affixes - for example imbued ones.
-        Here we make sure they are not rolled on edit.
-     */
+
+    //Some items can have protected affixes - for example imbued ones.
+    //Here we make sure they are not rolled on edit.
     private static AffixData rerollPreservingProtected(
             RegistryAccess registryAccess, ItemStack stack, AffixData existing,
-            ItemRarity rollRarity, ItemRarity finalRarity, boolean finalEndfused, RandomSource random
+            ItemRarity rollRarity, ItemRarity finalRarity, boolean finalEndfused, int itemLevel, RandomSource random
     ) {
         List<RolledAffix> protectedAffixes = collectProtectedAffixes(existing);
-        AffixData fresh = rollForRarity(registryAccess, stack, rollRarity, random);
+        AffixData fresh = rollForRarity(registryAccess, stack, rollRarity, itemLevel, random);
 
         if (protectedAffixes.isEmpty()) {
             return new AffixData(finalRarity, fresh.affixes(), finalEndfused, existing.craftedAffixId(), existing.imbuedAffixId());
@@ -112,7 +108,7 @@ public class AffixRoller {
         }
     }
 
-    public static AffixData addRandomAffix(RegistryAccess registryAccess, ItemStack stack, AffixData existing, RandomSource random) {
+    public static AffixData addRandomAffix(RegistryAccess registryAccess, ItemStack stack, AffixData existing, int itemLevel, RandomSource random) {
         Registry<AffixDefinition> registry = registryAccess.lookupOrThrow(TumultuRegistries.AFFIX_KEY);
 
         Set<Identifier> usedIds = existing.affixes().stream()
@@ -147,7 +143,7 @@ public class AffixRoller {
             if (!def.group().isEmpty() && usedGroups.contains(def.group())) continue;
             if (def.type() == AffixType.PREFIX && prefixCount >= existing.rarity().maxPrefixes()) continue;
             if (def.type() == AffixType.SUFFIX && suffixCount >= existing.rarity().maxSuffixes()) continue;
-            if (!hasEligibleTiers(def, stack)) continue;
+            if (!hasEligibleTiers(def, stack, itemLevel)) continue;
 
             pool.add(new WeightedAffix(id, def));
         }
@@ -161,7 +157,7 @@ public class AffixRoller {
         List<Integer> eligibleIndices = new ArrayList<>();
         for (int t = 0; t < selected.def.tiers().size(); t++) {
             AffixTier tier = selected.def.tiers().get(t);
-            if (tier.isApplicableTo(stack)) {
+            if (tier.isEligibleFor(stack, itemLevel)) {
                 eligibleTiers.add(tier);
                 eligibleIndices.add(t);
             }
@@ -184,6 +180,7 @@ public class AffixRoller {
             ItemStack stack,
             AffixType type,
             int count,
+            int itemLevel,
             Set<String> usedGroups,
             List<RolledAffix> result,
             RandomSource random
@@ -194,7 +191,7 @@ public class AffixRoller {
             if (def.type() != type) continue;
             if (!isApplicable(def, stack)) continue;
             if (!def.group().isEmpty() && usedGroups.contains(def.group())) continue;
-            if (!hasEligibleTiers(def, stack)) continue;
+            if (!hasEligibleTiers(def, stack, itemLevel)) continue;
 
             pool.add(new WeightedAffix(entry.getKey().identifier(), def));
         }
@@ -207,7 +204,7 @@ public class AffixRoller {
             List<Integer> eligibleIndices = new ArrayList<>();
             for (int t = 0; t < selected.def.tiers().size(); t++) {
                 AffixTier tier = selected.def.tiers().get(t);
-                if (tier.isApplicableTo(stack)) {
+                if (tier.isEligibleFor(stack, itemLevel)) {
                     eligibleTiers.add(tier);
                     eligibleIndices.add(t);
                 }
@@ -244,6 +241,13 @@ public class AffixRoller {
     public static boolean hasEligibleTiers(AffixDefinition def, ItemStack stack) {
         for (AffixTier tier : def.tiers()) {
             if (tier.isApplicableTo(stack)) return true;
+        }
+        return false;
+    }
+
+    public static boolean hasEligibleTiers(AffixDefinition def, ItemStack stack, int itemLevel) {
+        for (AffixTier tier : def.tiers()) {
+            if (tier.isEligibleFor(stack, itemLevel)) return true;
         }
         return false;
     }

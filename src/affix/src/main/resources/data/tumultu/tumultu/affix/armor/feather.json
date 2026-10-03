@@ -7,27 +7,57 @@
   },
   "tiers": [
     {
-      "min_value": -0.15,
+      "min_value": -0.16,
       "max_value": -0.05
     },
     {
-      "min_value": -0.3,
-      "max_value": -0.15
+      "min_value": -0.28,
+      "max_value": -0.16,
+      "required_item_level": 6
     },
     {
-      "min_value": -0.4,
-      "max_value": -0.3,
-      "applicable_tags": [
-        "tumultu:tier2_armor",
-        "tumultu:tier1_armor"
-      ]
+      "min_value": -0.39,
+      "max_value": -0.28,
+      "required_item_level": 14
     },
     {
       "min_value": -0.5,
-      "max_value": -0.4,
+      "max_value": -0.39,
+      "required_item_level": 23
+    },
+    {
+      "min_value": -0.61,
+      "max_value": -0.5,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 33
+    },
+    {
+      "min_value": -0.73,
+      "max_value": -0.61,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 45
+    },
+    {
+      "min_value": -0.84,
+      "max_value": -0.73,
       "applicable_tags": [
         "tumultu:tier1_armor"
-      ]
+      ],
+      "required_item_level": 58
+    },
+    {
+      "min_value": -0.95,
+      "max_value": -0.84,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 72
     }
   ],
   "weight": 15,

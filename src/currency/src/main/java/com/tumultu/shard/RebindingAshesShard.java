@@ -63,6 +63,7 @@ public class RebindingAshesShard extends AbstractShard {
 
         RolledAffix chosen = swappable.get(random.nextInt(swappable.size()));
 
+        int itemLevel = itemLevelOf(target);
         List<AffixDefinition> alternatives = new ArrayList<>();
         List<Identifier> alternativeIds = new ArrayList<>();
         for (var entry : registry.entrySet()) {
@@ -71,7 +72,9 @@ public class RebindingAshesShard extends AbstractShard {
             if (id.equals(chosen.affixId())) continue;
             if (!(def.effect() instanceof ElementalResistanceEffect)) continue;
             if (!AffixRoller.isApplicable(def, target)) continue;
-            if (!AffixRoller.hasEligibleTiers(def, target)) continue;
+            if (def.tiers().isEmpty()) continue;
+            int candidateTierIndex = Math.min(chosen.tierIndex(), def.tiers().size() - 1);
+            if (!def.tiers().get(candidateTierIndex).isEligibleFor(target, itemLevel)) continue;
             alternatives.add(def);
             alternativeIds.add(id);
         }

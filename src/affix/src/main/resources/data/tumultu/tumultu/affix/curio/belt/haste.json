@@ -1,0 +1,55 @@
+{
+  "type": "suffix",
+  "display_name": "of Haste",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:attack_speed"
+  },
+  "tiers": [
+    {
+      "min_value": 0.2,
+      "max_value": 0.45
+    },
+    {
+      "min_value": 0.45,
+      "max_value": 0.7,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.7,
+      "max_value": 0.95,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.95,
+      "max_value": 1.2,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 1.2,
+      "max_value": 1.45,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 1.45,
+      "max_value": 1.7,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 1.7,
+      "max_value": 1.95,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 1.95,
+      "max_value": 2.2,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 18,
+  "group": "curio_belt_attack_speed",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "physical_offense"
+}

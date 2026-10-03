@@ -44,6 +44,7 @@ public class GrowthShard extends AbstractShard {
                 registryAccess,
                 target,
                 data,
+                itemLevelOf(target),
                 level.getRandom()
         );
         if (newData == data) return false;

@@ -1,0 +1,54 @@
+{
+  "type": "suffix",
+  "display_name": "of the Elements",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.015,
+      "max_value": 0.038
+    },
+    {
+      "min_value": 0.038,
+      "max_value": 0.061,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.061,
+      "max_value": 0.084,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.084,
+      "max_value": 0.107,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.107,
+      "max_value": 0.131,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.131,
+      "max_value": 0.153,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.153,
+      "max_value": 0.177,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.177,
+      "max_value": 0.2,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 8,
+  "group": "curio_belt_all_resistance",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "elemental_defense"
+}

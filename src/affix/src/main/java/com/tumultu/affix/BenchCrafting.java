@@ -13,19 +13,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-/**
-    Targeted, not RNG based affix crafting system through crafting bench
- */
 public class BenchCrafting {
 
     public record CraftableAffix(Identifier id, AffixDefinition def) {}
 
-    /**
-     * Every affix in category that could currently be crafted onto target item:  needs to be valid
-     * for the item, has a tier eligible for it, not already blocked by a used group, and of a
-     * prefix/suffix type that still has room. Only one crafted affix is allowed per item.
-     */
-    public static List<CraftableAffix> validCategoryAffixes(RegistryAccess registryAccess, ItemStack target, AffixData existing, RecipeCategory category) {
+    public static List<CraftableAffix> validCategoryAffixes(RegistryAccess registryAccess, ItemStack target, AffixData existing, RecipeCategory category, int itemLevel) {
         if (existing.craftedAffixId().isPresent()) {
             return List.of();
         }
@@ -53,7 +45,7 @@ public class BenchCrafting {
             AffixDefinition def = entry.getValue();
             if (!def.craftCategory().equals(category.id())) continue;
             if (!AffixRoller.isApplicable(def, target)) continue;
-            if (!AffixRoller.hasEligibleTiers(def, target)) continue;
+            if (!AffixRoller.hasEligibleTiers(def, target, itemLevel)) continue;
             if (!def.group().isEmpty() && usedGroups.contains(def.group())) continue;
             if (def.type() == AffixType.PREFIX && !prefixRoom) continue;
             if (def.type() == AffixType.SUFFIX && !suffixRoom) continue;
@@ -65,13 +57,13 @@ public class BenchCrafting {
 
     public static Optional<AffixData> craftAffix(
             RegistryAccess registryAccess, ItemStack target, AffixData existing,
-            RecipeCategory category, int chosenIndex, PaymentTier tier, RandomSource random
+            RecipeCategory category, int chosenIndex, PaymentTier tier, int itemLevel, RandomSource random
     ) {
         if (!existing.isModifiable() || existing.craftedAffixId().isPresent()) {
             return Optional.empty();
         }
 
-        List<CraftableAffix> valid = validCategoryAffixes(registryAccess, target, existing, category);
+        List<CraftableAffix> valid = validCategoryAffixes(registryAccess, target, existing, category, itemLevel);
         if (chosenIndex < 0 || chosenIndex >= valid.size()) {
             return Optional.empty();
         }
@@ -81,7 +73,7 @@ public class BenchCrafting {
         List<Integer> eligibleIndices = new ArrayList<>();
         for (int t = 0; t < chosen.def().tiers().size(); t++) {
             AffixTier affixTier = chosen.def().tiers().get(t);
-            if (affixTier.isApplicableTo(target)) {
+            if (affixTier.isEligibleFor(target, itemLevel)) {
                 eligibleTiers.add(affixTier);
                 eligibleIndices.add(t);
             }
@@ -120,11 +112,6 @@ public class BenchCrafting {
         return Optional.of(existing.withAffixes(remaining).withCraftedAffixId(Optional.empty()));
     }
 
-    /**
-     * Weight for eligible-tier-position (0 = worst, n-1 = best) is
-     * (i+1)^biasExponent- higher exponent skews harder toward the best tier without ever
-     * fully excluding the others.
-     */
     static int pickWeightedTierIndex(int eligibleTierCount, double biasExponent, double roll) {
         double[] weights = new double[eligibleTierCount];
         double total = 0;

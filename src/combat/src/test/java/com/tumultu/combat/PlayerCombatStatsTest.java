@@ -14,6 +14,7 @@ import com.tumultu.affix.effect.ElementalPenetrationEffect;
 import com.tumultu.affix.effect.ElementalResistanceEffect;
 import com.tumultu.affix.effect.PhysicalDamageReductionEffect;
 import com.tumultu.affix.effect.ThornsMultiplierEffect;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.Identifier;
 import org.junit.jupiter.api.Test;
@@ -167,5 +168,33 @@ class PlayerCombatStatsTest {
                 List.of(AffixData.EMPTY, AffixData.EMPTY, AffixData.EMPTY, AffixData.EMPTY), registry);
 
         assertFalse(immune);
+    }
+    @Test
+    void environmentalResistancePenaltyIsZeroBelowWorldTierFive() {
+        // max(|x|,|z|) = 4999 -> world tier 4, one short of where the penalty starts.
+        double penalty = PlayerCombatStats.environmentalResistancePenaltyAt(new BlockPos(4999, 64, 0));
+
+        assertEquals(0.0, penalty, 0.0001);
+    }
+
+    @Test
+    void environmentalResistancePenaltyStartsAtWorldTierFive() {
+        double penalty = PlayerCombatStats.environmentalResistancePenaltyAt(new BlockPos(5000, 64, 0));
+
+        assertEquals(0.05, penalty, 0.0001);
+    }
+
+    @Test
+    void environmentalResistancePenaltyReaches60PercentAtWorldTierSixteen() {
+        double penalty = PlayerCombatStats.environmentalResistancePenaltyAt(new BlockPos(0, 64, -16000));
+
+        assertEquals(0.60, penalty, 0.0001);
+    }
+
+    @Test
+    void environmentalResistancePenaltyStaysCappedPastWorldTierSixteen() {
+        double penalty = PlayerCombatStats.environmentalResistancePenaltyAt(new BlockPos(500_000, 64, 0));
+
+        assertEquals(0.60, penalty, 0.0001, "world tier itself caps at 16, so the penalty must too");
     }
 }

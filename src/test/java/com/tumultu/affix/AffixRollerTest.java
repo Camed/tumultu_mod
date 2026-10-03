@@ -63,7 +63,7 @@ class AffixRollerTest {
 
     @Test
     void rollForRarityNormalReturnsEmptyWithoutTouchingRegistry() {
-        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.NORMAL, RandomSource.create(1L));
+        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.NORMAL, 100, RandomSource.create(1L));
 
         assertEquals(AffixData.EMPTY, result);
         verifyNoInteractions(registryAccess);
@@ -78,7 +78,7 @@ class AffixRollerTest {
                 suffixId, TestFixtures.definition(AffixType.SUFFIX, "suffix_group", 100, List.of(TestFixtures.tier(10.0, 20.0)))
         ));
 
-        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.MAGIC, RandomSource.create(7L));
+        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.MAGIC, 100, RandomSource.create(7L));
 
         assertEquals(ItemRarity.MAGIC, result.rarity());
         assertFalse(result.endfused());
@@ -97,7 +97,7 @@ class AffixRollerTest {
     void rollForRarityEndfusedMarksEndfusedFlag() {
         stubRegistry(Map.of());
 
-        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.ENDFUSED, RandomSource.create(3L));
+        AffixData result = AffixRoller.rollForRarity(registryAccess, stack, ItemRarity.ENDFUSED, 100, RandomSource.create(3L));
 
         assertEquals(ItemRarity.ENDFUSED, result.rarity());
         assertTrue(result.endfused());
@@ -108,7 +108,7 @@ class AffixRollerTest {
         stubRegistry(Map.of());
         AffixData existing = new AffixData(ItemRarity.RARE, List.of(), false);
 
-        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, RandomSource.create(9L));
+        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, 100, RandomSource.create(9L));
 
         assertEquals(ItemRarity.RARE, result.rarity());
     }
@@ -123,7 +123,7 @@ class AffixRollerTest {
         RolledAffix originalCrafted = new RolledAffix(craftedId, 1, 5.5);
         AffixData existing = new AffixData(ItemRarity.RARE, List.of(originalCrafted), false, Optional.of(craftedId));
 
-        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, RandomSource.create(42L));
+        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, 100, RandomSource.create(42L));
 
         assertTrue(result.affixes().contains(originalCrafted),
                 "the crafted affix must survive a reroll with its exact original tier/value");
@@ -143,7 +143,7 @@ class AffixRollerTest {
         AffixData existing = new AffixData(ItemRarity.RARE, List.of(craftedRolled, imbuedRolled), false,
                 Optional.of(craftedId), Optional.of(imbuedId));
 
-        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, RandomSource.create(3L));
+        AffixData result = AffixRoller.reroll(registryAccess, stack, existing, 100, RandomSource.create(3L));
 
         assertTrue(result.affixes().contains(craftedRolled));
         assertTrue(result.affixes().contains(imbuedRolled));
@@ -161,7 +161,7 @@ class AffixRollerTest {
         ));
         AffixData existing = new AffixData(ItemRarity.RARE, List.of(new RolledAffix(existingId, 0, 1.0)), false);
 
-        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, RandomSource.create(5L));
+        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, 100, RandomSource.create(5L));
 
         assertEquals(existing.affixes(), result.affixes(),
                 "the only other candidate shares a group with an existing affix and must be filtered out");
@@ -172,7 +172,7 @@ class AffixRollerTest {
         stubRegistry(Map.of());
         AffixData existing = new AffixData(ItemRarity.RARE, List.of(), false);
 
-        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, RandomSource.create(2L));
+        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, 100, RandomSource.create(2L));
 
         assertEquals(existing, result);
     }
@@ -196,7 +196,7 @@ class AffixRollerTest {
                 new RolledAffix(p3, 0, 1.0)
         ), false);
 
-        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, RandomSource.create(11L));
+        AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, existing, 100, RandomSource.create(11L));
 
         assertEquals(existing.affixes(), result.affixes(),
                 "prefix cap already reached: the only candidate (a prefix) must not be added");
@@ -241,16 +241,6 @@ class AffixRollerTest {
         }
     }
 
-    /**
-     * Reproduces the mod's actual tier layout (2 universal tiers + a tier2-exclusive + a
-     * tier1-exclusive, matching e.g. melee/brutal.json) against a stack that matches ONLY the
-     * tier1 tag - exactly a netherite sword's real tag membership (tier1_weapons/tier2_weapons
-     * are flat, mutually-exclusive tags with no overlap or inheritance). Verifies the actual
-     * {@link AffixRoller#addRandomAffix} tier pick (not a reimplementation of it) never lands on
-     * the tier2-only tier, and spreads roughly evenly across the three tiers it IS eligible for -
-     * catching a regression where eligibility or the random pick itself became biased toward the
-     * top tier.
-     */
     @Test
     void tierSelectionNeverPicksTier2ExclusiveTierForATier1OnlyStackAndSpreadsAcrossTheRest() {
         Identifier affixId = TestFixtures.id("melee_affix");
@@ -275,7 +265,7 @@ class AffixRollerTest {
         AffixData empty = new AffixData(ItemRarity.RARE, List.of(), false);
         int trials = 3000;
         for (int i = 0; i < trials; i++) {
-            AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, empty, random);
+            AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, empty, 100, random);
             assertEquals(1, result.affixes().size());
             counts[result.affixes().get(0).tierIndex()]++;
         }
@@ -287,6 +277,42 @@ class AffixRollerTest {
             assertTrue(counts[index] > trials * 0.2 && counts[index] < trials * 0.47,
                     "tier index " + index + " got " + counts[index] + "/" + trials + ", expected roughly 1/3");
         }
+    }
+
+    @Test
+    void tierSelectionRespectsPerTierItemLevelNotWholeAffixLevel() {
+        Identifier affixId = TestFixtures.id("brutal_like");
+        List<AffixTier> tiers = List.of(
+                TestFixtures.tier(0.05, 0.1),
+                TestFixtures.tier(0.1, 0.15),
+                TestFixtures.tier(0.15, 0.2),
+                TestFixtures.tierWithLevel(0.2, 0.3, 70)
+        );
+        stubRegistry(mapOf(affixId, TestFixtures.definition(AffixType.PREFIX, "g", 100, tiers)));
+        lenient().when(stack.is((TagKey<Item>) any())).thenReturn(true);
+
+        AffixData empty = new AffixData(ItemRarity.RARE, List.of(), false);
+        RandomSource random = RandomSource.create(7L);
+
+        int[] belowGateCounts = new int[4];
+        int trials = 2000;
+        for (int i = 0; i < trials; i++) {
+            AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, empty, 69, random);
+            assertEquals(1, result.affixes().size());
+            belowGateCounts[result.affixes().get(0).tierIndex()]++;
+        }
+        assertEquals(0, belowGateCounts[3], "item level 69 must never reach the level-70 tier");
+
+        boolean sawTopTier = false;
+        boolean sawWeakTier = false;
+        for (int i = 0; i < trials; i++) {
+            AffixData result = AffixRoller.addRandomAffix(registryAccess, stack, empty, 70, random);
+            int tierIndex = result.affixes().get(0).tierIndex();
+            if (tierIndex == 3) sawTopTier = true;
+            if (tierIndex == 0) sawWeakTier = true;
+        }
+        assertTrue(sawTopTier, "item level 70 should be able to reach the gated top tier");
+        assertTrue(sawWeakTier, "the weak tier should still be reachable even at item level 70");
     }
 
     @Test

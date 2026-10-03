@@ -18,6 +18,8 @@ import net.minecraft.world.level.Level;
 
 // melee archetype for monsters from this modpack
 public class TumultuBruteMonster extends AbstractTumultuMonster {
+    private static final long ATTACK_ANIMATION_DURATION_MILLIS = 1200L;
+
     public final AnimationState attackAnimationState = new AnimationState();
 
     public TumultuBruteMonster(EntityType<? extends TumultuBruteMonster> type, Level level) {
@@ -28,6 +30,15 @@ public class TumultuBruteMonster extends AbstractTumultuMonster {
     public void swing(InteractionHand hand, boolean sendToSwingingEntity) {
         super.swing(hand, sendToSwingingEntity);
         this.attackAnimationState.start(this.tickCount);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (this.attackAnimationState.isStarted()
+                && this.attackAnimationState.getTimeInMillis(this.tickCount) >= ATTACK_ANIMATION_DURATION_MILLIS) {
+            this.attackAnimationState.stop();
+        }
     }
 
 

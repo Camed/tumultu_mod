@@ -45,8 +45,10 @@ public class HeighteningShard extends AbstractShard {
                 registryAccess,
                 target,
                 upgraded,
+                itemLevelOf(target),
                 level.getRandom()
         );
+        if (newData == upgraded) return false;
 
         setAffixData(target, newData, registryAccess, level.getRandom());
         return true;

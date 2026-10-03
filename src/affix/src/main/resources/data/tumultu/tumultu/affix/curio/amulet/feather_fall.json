@@ -8,20 +8,43 @@
   },
   "tiers": [
     {
-      "min_value": -0.19,
-      "max_value": -0.10
+      "min_value": -0.21,
+      "max_value": -0.1
     },
     {
-      "min_value": -0.34,
-      "max_value": -0.20
+      "min_value": -0.31,
+      "max_value": -0.21,
+      "required_item_level": 13
     },
     {
-      "min_value": -0.5,
-      "max_value": -0.35
+      "min_value": -0.42,
+      "max_value": -0.31,
+      "required_item_level": 24
     },
     {
-      "min_value": -0.65,
-      "max_value": -0.51
+      "min_value": -0.53,
+      "max_value": -0.42,
+      "required_item_level": 35
+    },
+    {
+      "min_value": -0.63,
+      "max_value": -0.53,
+      "required_item_level": 45
+    },
+    {
+      "min_value": -0.74,
+      "max_value": -0.63,
+      "required_item_level": 56
+    },
+    {
+      "min_value": -0.84,
+      "max_value": -0.74,
+      "required_item_level": 68
+    },
+    {
+      "min_value": -0.95,
+      "max_value": -0.84,
+      "required_item_level": 80
     }
   ],
   "weight": 12,

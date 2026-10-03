@@ -1,0 +1,55 @@
+{
+  "type": "suffix",
+  "display_name": "of Lightning Warding",
+  "effect": {
+    "type": "elemental_resistance",
+    "element": "lightning"
+  },
+  "tiers": [
+    {
+      "min_value": 0.022,
+      "max_value": 0.057
+    },
+    {
+      "min_value": 0.057,
+      "max_value": 0.092,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.092,
+      "max_value": 0.126,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.126,
+      "max_value": 0.161,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.161,
+      "max_value": 0.196,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.196,
+      "max_value": 0.23,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.23,
+      "max_value": 0.265,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.265,
+      "max_value": 0.3,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 15,
+  "group": "curio_belt_lightning_resistance",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "elemental_defense"
+}

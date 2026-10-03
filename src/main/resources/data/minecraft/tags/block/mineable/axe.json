@@ -4,6 +4,13 @@
     "tumultu:blighted_wood",
     "tumultu:stripped_blighted_log",
     "tumultu:stripped_blighted_wood",
-    "tumultu:blighted_planks"
+    "tumultu:blighted_planks",
+    "tumultu:blighted_slab",
+    "tumultu:blighted_stairs",
+    "tumultu:blighted_fence",
+    "tumultu:blighted_fence_gate",
+    "tumultu:blighted_trapdoor",
+    "tumultu:blighted_button",
+    "tumultu:blighted_pressure_plate"
   ]
 }

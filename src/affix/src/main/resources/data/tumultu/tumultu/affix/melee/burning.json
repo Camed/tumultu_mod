@@ -8,26 +8,56 @@
   "tiers": [
     {
       "min_value": 2.0,
-      "max_value": 4.0
+      "max_value": 5.0
     },
     {
-      "min_value": 4.0,
-      "max_value": 7.0
+      "min_value": 5.0,
+      "max_value": 8.0,
+      "required_item_level": 10
     },
     {
-      "min_value": 7.0,
-      "max_value": 10.0,
+      "min_value": 8.0,
+      "max_value": 12.0,
+      "required_item_level": 21
+    },
+    {
+      "min_value": 12.0,
+      "max_value": 15.0,
+      "required_item_level": 33
+    },
+    {
+      "min_value": 15.0,
+      "max_value": 18.0,
       "applicable_tags": [
         "tumultu:tier2_weapons",
         "tumultu:tier1_weapons"
-      ]
+      ],
+      "required_item_level": 45
     },
     {
-      "min_value": 10.0,
-      "max_value": 15.0,
+      "min_value": 18.0,
+      "max_value": 22.0,
+      "applicable_tags": [
+        "tumultu:tier2_weapons",
+        "tumultu:tier1_weapons"
+      ],
+      "required_item_level": 57
+    },
+    {
+      "min_value": 22.0,
+      "max_value": 25.0,
       "applicable_tags": [
         "tumultu:tier1_weapons"
-      ]
+      ],
+      "required_item_level": 68
+    },
+    {
+      "min_value": 25.0,
+      "max_value": 28.0,
+      "applicable_tags": [
+        "tumultu:tier1_weapons"
+      ],
+      "required_item_level": 80
     }
   ],
   "weight": 18,

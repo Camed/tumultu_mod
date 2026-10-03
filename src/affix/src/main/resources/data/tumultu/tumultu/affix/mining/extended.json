@@ -8,27 +8,56 @@
   "tiers": [
     {
       "min_value": 0.5,
-      "max_value": 1.0
+      "max_value": 1.2
     },
     {
-      "min_value": 1.0,
-      "max_value": 1.5
+      "min_value": 1.2,
+      "max_value": 2.0,
+      "required_item_level": 5
     },
     {
-      "min_value": 1.5,
-      "max_value": 2.5,
+      "min_value": 2.0,
+      "max_value": 2.8,
+      "required_item_level": 12
+    },
+    {
+      "min_value": 2.8,
+      "max_value": 3.5,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 3.5,
+      "max_value": 4.2,
       "applicable_tags": [
         "tumultu:tier2_tools",
         "tumultu:tier1_tools"
-
-      ]
+      ],
+      "required_item_level": 30
     },
     {
-      "min_value": 2.5,
-      "max_value": 3.5,
+      "min_value": 4.2,
+      "max_value": 5.0,
+      "applicable_tags": [
+        "tumultu:tier2_tools",
+        "tumultu:tier1_tools"
+      ],
+      "required_item_level": 42
+    },
+    {
+      "min_value": 5.0,
+      "max_value": 5.8,
       "applicable_tags": [
         "tumultu:tier1_tools"
-      ]
+      ],
+      "required_item_level": 55
+    },
+    {
+      "min_value": 5.8,
+      "max_value": 6.5,
+      "applicable_tags": [
+        "tumultu:tier1_tools"
+      ],
+      "required_item_level": 70
     }
   ],
   "weight": 15,

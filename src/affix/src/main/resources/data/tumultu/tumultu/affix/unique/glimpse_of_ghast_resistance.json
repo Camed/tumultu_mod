@@ -1,0 +1,19 @@
+{
+  "type": "suffix",
+  "display_name": "of the Ghast",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.15
+    }
+  ],
+  "weight": 1,
+  "group": "unique_glimpse_of_ghast_resistance",
+  "applicable_tags": [
+    "tumultu:glimpse_of_ghast"
+  ],
+  "craft_category": "elemental_defense"
+}

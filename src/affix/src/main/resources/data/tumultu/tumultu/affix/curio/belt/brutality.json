@@ -1,0 +1,54 @@
+{
+  "type": "suffix",
+  "display_name": "of Brutality",
+  "effect": {
+    "type": "crit_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.08,
+      "max_value": 0.139
+    },
+    {
+      "min_value": 0.139,
+      "max_value": 0.198,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.198,
+      "max_value": 0.256,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.256,
+      "max_value": 0.315,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.315,
+      "max_value": 0.374,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.374,
+      "max_value": 0.433,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.433,
+      "max_value": 0.491,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.491,
+      "max_value": 0.55,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 15,
+  "group": "curio_belt_crit_damage_percent",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "critical"
+}

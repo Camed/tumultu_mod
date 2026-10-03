@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "tumultu:block/blighted_planks",
+    "side": "tumultu:block/blighted_planks",
+    "top": "tumultu:block/blighted_planks"
+  }
+}

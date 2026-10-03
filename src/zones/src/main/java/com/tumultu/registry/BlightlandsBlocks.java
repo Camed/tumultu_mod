@@ -13,9 +13,16 @@ import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.ButtonBlock;
 import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.FenceBlock;
+import net.minecraft.world.level.block.FenceGateBlock;
+import net.minecraft.world.level.block.PressurePlateBlock;
 import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.StandingSignBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
 import net.minecraft.world.level.block.WallSignBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.grower.TreeGrower;
@@ -87,6 +94,33 @@ public class BlightlandsBlocks {
     public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_PLANKS_ITEM =
             TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_PLANKS);
 
+    public static final DeferredBlock<SlabBlock> BLIGHTED_SLAB = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_slab",
+            registryName -> new SlabBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_SLAB_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_SLAB);
+
+    public static final DeferredBlock<StairBlock> BLIGHTED_STAIRS = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_stairs",
+            registryName -> new StairBlock(BLIGHTED_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_STAIRS).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_STAIRS_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_STAIRS);
+
+    public static final DeferredBlock<FenceBlock> BLIGHTED_FENCE = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_fence",
+            registryName -> new FenceBlock(
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_FENCE_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_FENCE);
+
     public static final DeferredBlock<FlammableTintedLeavesBlock> BLIGHTED_LEAVES = TumultuBlocksRegistry.BLOCKS.register(
             "blighted_leaves",
             registryName -> new FlammableTintedLeavesBlock(0.01F,
@@ -121,8 +155,45 @@ public class BlightlandsBlocks {
     public static final DeferredItem<Item> BLIGHTED_DOOR_ITEM = TumultuItemsRegistry.ITEMS.register(
             "blighted_door",
             registryName -> new DoubleHighBlockItem(BLIGHTED_DOOR.get(),
-                    new Item.Properties().setId(ResourceKey.create(Registries.ITEM, registryName)).stacksTo(64))
+                    new Item.Properties().setId(ResourceKey.create(Registries.ITEM, registryName)).stacksTo(64)
+                            .useBlockDescriptionPrefix())
     );
+
+    public static final DeferredBlock<FenceGateBlock> BLIGHTED_FENCE_GATE = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_fence_gate",
+            registryName -> new FenceGateBlock(BlightlandsWoodTypes.BLIGHTED,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_FENCE_GATE).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_FENCE_GATE_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_FENCE_GATE);
+
+    public static final DeferredBlock<TrapDoorBlock> BLIGHTED_TRAPDOOR = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_trapdoor",
+            registryName -> new TrapDoorBlock(BlightlandsWoodTypes.BLIGHTED_SET,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_TRAPDOOR).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_TRAPDOOR_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_TRAPDOOR);
+
+    public static final DeferredBlock<ButtonBlock> BLIGHTED_BUTTON = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_button",
+            registryName -> new ButtonBlock(BlightlandsWoodTypes.BLIGHTED_SET, 30,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_BUTTON).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_BUTTON_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_BUTTON);
+
+    public static final DeferredBlock<PressurePlateBlock> BLIGHTED_PRESSURE_PLATE = TumultuBlocksRegistry.BLOCKS.register(
+            "blighted_pressure_plate",
+            registryName -> new PressurePlateBlock(BlightlandsWoodTypes.BLIGHTED_SET,
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PRESSURE_PLATE).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+    );
+
+    public static final DeferredItem<net.minecraft.world.item.BlockItem> BLIGHTED_PRESSURE_PLATE_ITEM =
+            TumultuItemsRegistry.ITEMS.registerSimpleBlockItem(BLIGHTED_PRESSURE_PLATE);
 
     public static final DeferredBlock<StandingSignBlock> BLIGHTED_SIGN = TumultuBlocksRegistry.BLOCKS.register(
             "blighted_sign",
@@ -133,13 +204,16 @@ public class BlightlandsBlocks {
     public static final DeferredBlock<WallSignBlock> BLIGHTED_WALL_SIGN = TumultuBlocksRegistry.BLOCKS.register(
             "blighted_wall_sign",
             registryName -> new WallSignBlock(BlightlandsWoodTypes.BLIGHTED,
-                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN).setId(ResourceKey.create(Registries.BLOCK, registryName)))
+                    BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_WALL_SIGN)
+                            .setId(ResourceKey.create(Registries.BLOCK, registryName))
+                            .overrideLootTable(Optional.of(ResourceKey.create(Registries.LOOT_TABLE, registryName.withPrefix("blocks/")))))
     );
 
     public static final DeferredItem<Item> BLIGHTED_SIGN_ITEM = TumultuItemsRegistry.ITEMS.register(
             "blighted_sign",
             registryName -> new SignItem(BLIGHTED_SIGN.get(), BLIGHTED_WALL_SIGN.get(),
-                    new Item.Properties().setId(ResourceKey.create(Registries.ITEM, registryName)).stacksTo(16))
+                    new Item.Properties().setId(ResourceKey.create(Registries.ITEM, registryName)).stacksTo(16)
+                            .useBlockDescriptionPrefix())
     );
 
     public static final DeferredItem<Item> BLIGHTED_BOAT_ITEM = TumultuItemsRegistry.ITEMS.register(

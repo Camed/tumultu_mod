@@ -1,0 +1,56 @@
+{
+  "type": "suffix",
+  "display_name": "of Feather Fall",
+  "effect": {
+    "type": "attribute",
+    "attribute": "minecraft:gravity",
+    "operation": "add_multiplied_base"
+  },
+  "tiers": [
+    {
+      "min_value": -0.231,
+      "max_value": -0.15
+    },
+    {
+      "min_value": -0.312,
+      "max_value": -0.231,
+      "required_item_level": 10
+    },
+    {
+      "min_value": -0.394,
+      "max_value": -0.312,
+      "required_item_level": 20
+    },
+    {
+      "min_value": -0.475,
+      "max_value": -0.394,
+      "required_item_level": 32
+    },
+    {
+      "min_value": -0.556,
+      "max_value": -0.475,
+      "required_item_level": 44
+    },
+    {
+      "min_value": -0.638,
+      "max_value": -0.556,
+      "required_item_level": 56
+    },
+    {
+      "min_value": -0.719,
+      "max_value": -0.638,
+      "required_item_level": 68
+    },
+    {
+      "min_value": -0.8,
+      "max_value": -0.719,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 12,
+  "group": "curio_belt_gravity",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "mobility"
+}

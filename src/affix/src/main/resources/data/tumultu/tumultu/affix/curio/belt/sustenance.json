@@ -1,0 +1,54 @@
+{
+  "type": "prefix",
+  "display_name": "Ravenous",
+  "effect": {
+    "type": "hunger_on_kill"
+  },
+  "tiers": [
+    {
+      "min_value": 0.3,
+      "max_value": 0.588
+    },
+    {
+      "min_value": 0.588,
+      "max_value": 0.875,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.875,
+      "max_value": 1.163,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 1.163,
+      "max_value": 1.45,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 1.45,
+      "max_value": 1.738,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 1.738,
+      "max_value": 2.025,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 2.025,
+      "max_value": 2.312,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 2.312,
+      "max_value": 2.6,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 12,
+  "group": "curio_belt_hunger_on_kill",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "sustenance"
+}

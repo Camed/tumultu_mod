@@ -1,6 +1,7 @@
 package com.tumultu;
 
 import com.tumultu.affix.AffixTooltipAppender;
+import com.tumultu.affix.ItemLevelTooltipAppender;
 import com.tumultu.affix.OutruledTooltipAppender;
 import com.tumultu.combat.CombatEventHandler;
 import com.tumultu.combat.CombatTickHandler;
@@ -10,6 +11,8 @@ import com.tumultu.combat.TumultuMobEffects;
 import com.tumultu.core.command.TumultuCommands;
 import com.tumultu.core.event.AreaMiningEventHandler;
 import com.tumultu.loot.BonusDropHandler;
+import com.tumultu.loot.DropRarityRerollHandler;
+import com.tumultu.loot.ShardOfDiscoveryDropHandler;
 import com.tumultu.registry.BlightlandsBlockEntities;
 import com.tumultu.registry.BlightlandsBlocks;
 import com.tumultu.registry.BlightlandsEntityTypes;
@@ -24,6 +27,7 @@ import com.tumultu.registry.TumultuDataComponents;
 import com.tumultu.registry.TumultuEntityTypes;
 import com.tumultu.registry.TumultuItemDefinitions;
 import com.tumultu.registry.TumultuItemsRegistry;
+import com.tumultu.registry.TumultuLootConditions;
 import com.tumultu.registry.TumultuLootFunctions;
 import com.tumultu.registry.TumultuMobRegistries;
 import com.tumultu.registry.TumultuRecipeItems;
@@ -31,6 +35,9 @@ import com.tumultu.registry.TumultuRegistries;
 import com.tumultu.registry.TumultuUniqueItems;
 import com.tumultu.network.PreviewResultPayload;
 import com.tumultu.worldgen.BlightlandsRegion;
+import com.tumultu.zones.DiscoveryShardChanceReloadListener;
+import com.tumultu.zones.DropChanceScalingReloadListener;
+import com.tumultu.zones.DropRarityWeightsReloadListener;
 import com.tumultu.zones.VanillaMobScalingHandler;
 import com.tumultu.zones.WorldTierScalingReloadListener;
 import com.tumultu.zones.ZoneAttachments;
@@ -97,6 +104,8 @@ public class Tumultu {
 
         TumultuLootFunctions.LOOT_FUNCTIONS.register(modBus);
 
+        TumultuLootConditions.LOOT_CONDITIONS.register(modBus);
+
         modBus.addListener(TumultuRegistries::onNewRegistry);
 
         modBus.addListener(TumultuMobRegistries::onNewRegistry);
@@ -121,6 +130,10 @@ public class Tumultu {
 
         NeoForge.EVENT_BUS.register(BonusDropHandler.class);
 
+        NeoForge.EVENT_BUS.register(DropRarityRerollHandler.class);
+
+        NeoForge.EVENT_BUS.register(ShardOfDiscoveryDropHandler.class);
+
         NeoForge.EVENT_BUS.register(ZoneTickHandler.class);
 
         NeoForge.EVENT_BUS.register(VanillaMobScalingHandler.class);
@@ -129,7 +142,13 @@ public class Tumultu {
 
         NeoForge.EVENT_BUS.addListener(WorldTierScalingReloadListener::onAddReloadListeners);
 
-        Regions.register(new BlightlandsRegion(Identifier.fromNamespaceAndPath(MOD_ID, "tier3_biome_region"), 20));
+        NeoForge.EVENT_BUS.addListener(DropChanceScalingReloadListener::onAddReloadListeners);
+
+        NeoForge.EVENT_BUS.addListener(DropRarityWeightsReloadListener::onAddReloadListeners);
+
+        NeoForge.EVENT_BUS.addListener(DiscoveryShardChanceReloadListener::onAddReloadListeners);
+
+        Regions.register(new BlightlandsRegion(Identifier.fromNamespaceAndPath(MOD_ID, "tier3_biome_region"), 9));
 
         LOGGER.info("Tumultu initialized");
     }
@@ -137,6 +156,7 @@ public class Tumultu {
     private void registerTooltipAppenders(RegisterTooltipAppendersEvent event) {
         event.registerComponentAppenderAfterAll(TumultuDataComponents.AFFIX_DATA, new AffixTooltipAppender());
         event.registerComponentAppenderAfterAll(TumultuDataComponents.OUTRULED, new OutruledTooltipAppender());
+        event.registerComponentAppenderAfterAll(TumultuDataComponents.ITEM_LEVEL, new ItemLevelTooltipAppender());
     }
 
     private void registerPayloadHandlers(RegisterPayloadHandlersEvent event) {

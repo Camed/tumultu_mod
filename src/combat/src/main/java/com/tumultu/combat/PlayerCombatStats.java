@@ -24,12 +24,14 @@ import com.tumultu.affix.effect.PhysicalDamageReductionEffect;
 import com.tumultu.affix.effect.ReversePoisonEffect;
 import com.tumultu.affix.effect.ThornsMultiplierEffect;
 import com.tumultu.registry.TumultuDataComponents;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.neoforged.neoforge.items.IItemHandlerModifiable;
@@ -64,11 +66,31 @@ public class PlayerCombatStats {
             EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET
     };
 
+    private static final int ELEMENTAL_PENALTY_BLOCKS_PER_WORLD_TIER = 1000;
+    private static final int ELEMENTAL_PENALTY_MAX_WORLD_TIER = 16;
+    private static final int ELEMENTAL_PENALTY_START_TIER = 5;
+    private static final double ELEMENTAL_PENALTY_PER_TIER = 0.05;
+
+    static double environmentalResistancePenalty(LivingEntity entity) {
+        if (!(entity instanceof Player)) {
+            return 0.0;
+        }
+        return environmentalResistancePenaltyAt(entity.blockPosition());
+    }
+
+    static double environmentalResistancePenaltyAt(BlockPos pos) {
+        int worldTier = Math.min(
+                Math.max(Math.abs(pos.getX()), Math.abs(pos.getZ())) / ELEMENTAL_PENALTY_BLOCKS_PER_WORLD_TIER,
+                ELEMENTAL_PENALTY_MAX_WORLD_TIER);
+        int stepsAboveThreshold = Math.max(0, worldTier - (ELEMENTAL_PENALTY_START_TIER - 1));
+        return ELEMENTAL_PENALTY_PER_TIER * stepsAboveThreshold;
+    }
+
     public static double elementalResistance(LivingEntity entity, ElementKind element, Registry<AffixDefinition> registry) {
         return Math.min(rawElementalResistance(entity, element, registry), MAX_ELEMENTAL_RESISTANCE);
     }
 
-    // res is capped at 75%
+    // res is currently capped at 75%
     // todo: maybe player should be able to modify max res through future uniques/systems - keep an eye on that
     private static double rawElementalResistance(LivingEntity entity, ElementKind element, Registry<AffixDefinition> registry) {
         List<AffixData> armor = armorAffixData(entity);
@@ -82,7 +104,7 @@ public class PlayerCombatStats {
         double armorMitigationEquivalent = Math.min(entity.getAttributeValue(Attributes.ARMOR) * ARMOR_MITIGATION_PER_POINT, MAX_ARMOR_MITIGATION_EQUIVALENT);
         double converted = armorMitigationEquivalent * armorConversionPercent;
 
-        return direct + converted;
+        return direct + converted - environmentalResistancePenalty(entity);
     }
 
     public static double elementalResistanceOvercap(LivingEntity entity, ElementKind element, Registry<AffixDefinition> registry) {
@@ -113,7 +135,7 @@ public class PlayerCombatStats {
         // mob equips armor items to double-count against; todo: revisit if that ever changes.
         double baseArmor = entity instanceof TieredCombatant
                 ? entity.getAttributeValue(Attributes.ARMOR)
-                : sumBaseArmorFromEquipment(entity);
+                : sumBaseArmorFromEquipment(entity) + sumFlatCurioArmor(entity, registry);
         double percentBonus = 0;
         for (RolledAffix rolled : allAffixes(armorAffixData(entity))) {
             AffixDefinition def = registry.getValue(rolled.affixId());
@@ -144,6 +166,20 @@ public class PlayerCombatStats {
         return total;
     }
 
+    private static double sumFlatCurioArmor(LivingEntity entity, Registry<AffixDefinition> registry) {
+        double total = 0;
+        for (RolledAffix rolled : allAffixes(curioAffixData(entity))) {
+            AffixDefinition def = registry.getValue(rolled.affixId());
+            if (def == null) continue;
+            if (def.effect() instanceof AttributeEffect attributeEffect
+                    && attributeEffect.attribute().equals(Attributes.ARMOR)
+                    && attributeEffect.operation() == AttributeModifier.Operation.ADD_VALUE) {
+                total += rolled.rolledValue();
+            }
+        }
+        return total;
+    }
+
     public static double finalPhysicalDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry) {
         double multiplier = armorDamageMultiplier(entity, registry) * (1 - physicalDamageReduction(entity, registry));
         return Math.max(multiplier, 1 - MAX_FINAL_PHYSICAL_REDUCTION);
@@ -167,7 +203,8 @@ public class PlayerCombatStats {
         return hasEffect(armorAffixData(entity), registry, ReversePoisonEffect.class);
     }
     public static double thornsMultiplier(LivingEntity entity, Registry<AffixDefinition> registry) {
-        return sumThornsMultiplier(armorAffixData(entity), registry);
+        return sumThornsMultiplier(armorAffixData(entity), registry)
+                + sumThornsMultiplier(curioAffixData(entity), registry);
     }
     public static double critChance(LivingEntity entity, Registry<AffixDefinition> registry) {
         List<AffixData> equipped = allEquippedAffixData(entity);
@@ -176,10 +213,12 @@ public class PlayerCombatStats {
         return base * multiplier;
     }
     public static double critDamagePercent(LivingEntity entity, Registry<AffixDefinition> registry) {
-        return sumWhere(allEquippedAffixData(entity), registry, CritDamagePercentEffect.class);
+        return sumWhere(allEquippedAffixData(entity), registry, CritDamagePercentEffect.class)
+                + sumWhere(curioAffixData(entity), registry, CritDamagePercentEffect.class);
     }
     public static double critDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry) {
-        return 1 + sumWhere(allEquippedAffixData(entity), registry, CritDamageMultiplierEffect.class);
+        return 1 + sumWhere(allEquippedAffixData(entity), registry, CritDamageMultiplierEffect.class)
+                + sumWhere(curioAffixData(entity), registry, CritDamageMultiplierEffect.class);
     }
     public static double critDamageReduction(LivingEntity entity, Registry<AffixDefinition> registry) {
         return sumCritDamageReduction(armorAffixData(entity), registry);

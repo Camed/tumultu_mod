@@ -1,0 +1,20 @@
+{
+  "type": "prefix",
+  "display_name": "Ghast's Spark",
+  "effect": {
+    "type": "flat_elemental_damage",
+    "element": "lightning"
+  },
+  "tiers": [
+    {
+      "min_value": 3.0,
+      "max_value": 7.0
+    }
+  ],
+  "weight": 1,
+  "group": "unique_glimpse_of_ghast_lightning",
+  "applicable_tags": [
+    "tumultu:glimpse_of_ghast"
+  ],
+  "craft_category": "elemental_offense"
+}

@@ -9,8 +9,8 @@
       }
     },
     {
-      "condition": "minecraft:random_chance",
-      "chance": 0.4
+      "condition": "tumultu:world_tier_chance",
+      "base_chance": 0.4
     }
   ],
   "table": "tumultu:injected/shards_tier2"

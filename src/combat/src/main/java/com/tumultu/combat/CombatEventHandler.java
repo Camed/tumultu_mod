@@ -195,15 +195,14 @@ public class CombatEventHandler {
             Registry<AffixDefinition> registry = victim.registryAccess().lookupOrThrow(TumultuRegistries.AFFIX_KEY);
             double resistance = PlayerCombatStats.elementalResistance(victim, element, registry);
 
-            // penetration
-            if (incoming.getEntity() instanceof LivingEntity attacker) {
+            if (incoming.getEntity() instanceof LivingEntity attacker && resistance > 0) {
                 double penetration = PlayerCombatStats.elementalPenetration(attacker, registry);
                 if (penetration > 0) {
                     resistance *= (1 - Math.min(penetration, 1.0));
                 }
             }
 
-            float amount = resistance > 0 ? (float) (event.getAmount() * (1 - resistance)) : event.getAmount();
+            float amount = (float) (event.getAmount() * (1 - resistance));
             event.setAmount(applyShockedMultiplier(victim, amount));
             return;
         }

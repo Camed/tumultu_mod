@@ -151,8 +151,10 @@ public class CraftingBenchMenu extends AbstractContainerMenu {
             return false;
         }
 
+        Integer itemLevel = targetStack.get(TumultuDataComponents.ITEM_LEVEL.get());
         Optional<AffixData> crafted = BenchCrafting.craftAffix(
-                registryAccess, targetStack, existing, category.get(), buttonId, paymentTier.get(), player.getRandom());
+                registryAccess, targetStack, existing, category.get(), buttonId, paymentTier.get(),
+                itemLevel != null ? itemLevel : 0, player.getRandom());
         if (crafted.isEmpty()) {
             return false;
         }

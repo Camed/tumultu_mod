@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tumultu:block/blighted_slab"
+    },
+    "type=double": {
+      "model": "tumultu:block/blighted_planks"
+    },
+    "type=top": {
+      "model": "tumultu:block/blighted_slab_top"
+    }
+  }
+}

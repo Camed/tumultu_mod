@@ -1,0 +1,71 @@
+{
+  "type": "suffix",
+  "display_name": "of the Elements",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.033,
+      "max_value": 0.063
+    },
+    {
+      "min_value": 0.063,
+      "max_value": 0.093,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.093,
+      "max_value": 0.12,
+      "required_item_level": 21
+    },
+    {
+      "min_value": 0.12,
+      "max_value": 0.15,
+      "required_item_level": 33
+    },
+    {
+      "min_value": 0.15,
+      "max_value": 0.18,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.18,
+      "max_value": 0.207,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.207,
+      "max_value": 0.237,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.237,
+      "max_value": 0.267,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 80
+    }
+  ],
+  "weight": 8,
+  "group": "all_elemental_resistance",
+  "applicable_tags": [
+    "minecraft:head_armor",
+    "minecraft:chest_armor",
+    "minecraft:leg_armor",
+    "minecraft:foot_armor"
+  ],
+  "craft_category": "elemental_defense"
+}

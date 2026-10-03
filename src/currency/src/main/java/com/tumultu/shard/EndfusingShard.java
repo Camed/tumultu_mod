@@ -45,12 +45,13 @@ public class EndfusingShard extends AbstractShard {
 
         var random = level.getRandom();
         var registryAccess = level.registryAccess();
+        int itemLevel = itemLevelOf(target);
         int outcome = random.nextInt(4);
 
         AffixData newData = switch (outcome) {
-            case 0 -> AffixRoller.rerollForEndfusing(registryAccess, target, data, ItemRarity.ENDFUSED, random);
+            case 0 -> AffixRoller.rerollForEndfusing(registryAccess, target, data, ItemRarity.ENDFUSED, itemLevel, random);
             case 1 -> data.asEndfused();
-            case 2 -> AffixRoller.rerollForEndfusing(registryAccess, target, data, data.rarity(), random);
+            case 2 -> AffixRoller.rerollForEndfusing(registryAccess, target, data, data.rarity(), itemLevel, random);
             case 3 -> hasProtectedAffix ? data.asEndfused() : new AffixData(ItemRarity.ENDFUSED, List.of(), true);
             default -> data.asEndfused();
         };

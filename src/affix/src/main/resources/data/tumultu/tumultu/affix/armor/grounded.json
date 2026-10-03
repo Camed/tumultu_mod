@@ -1,33 +1,63 @@
 {
   "type": "suffix",
-  "display_name": "Grounded",
+  "display_name": "of Isolation",
   "effect": {
     "type": "elemental_resistance",
     "element": "lightning"
   },
   "tiers": [
     {
-      "min_value": 0.1,
-      "max_value": 0.17
+      "min_value": 0.05,
+      "max_value": 0.095
+    },
+    {
+      "min_value": 0.095,
+      "max_value": 0.14,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.14,
+      "max_value": 0.18,
+      "required_item_level": 21
     },
     {
       "min_value": 0.18,
-      "max_value": 0.26
+      "max_value": 0.225,
+      "required_item_level": 33
     },
     {
-      "min_value": 0.27,
-      "max_value": 0.35,
+      "min_value": 0.225,
+      "max_value": 0.27,
       "applicable_tags": [
         "tumultu:tier2_armor",
         "tumultu:tier1_armor"
-      ]
+      ],
+      "required_item_level": 44
     },
     {
-      "min_value": 0.36,
-      "max_value": 0.45,
+      "min_value": 0.27,
+      "max_value": 0.31,
+      "applicable_tags": [
+        "tumultu:tier2_armor",
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.31,
+      "max_value": 0.355,
       "applicable_tags": [
         "tumultu:tier1_armor"
-      ]
+      ],
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.355,
+      "max_value": 0.4,
+      "applicable_tags": [
+        "tumultu:tier1_armor"
+      ],
+      "required_item_level": 80
     }
   ],
   "weight": 18,

@@ -42,8 +42,10 @@ public class InfusionShard extends AbstractShard {
                 registryAccess,
                 target,
                 ItemRarity.RARE,
+                itemLevelOf(target),
                 level.getRandom()
         );
+        if (newData.affixes().isEmpty()) return false;
 
         setAffixData(target, newData, registryAccess, level.getRandom());
         return true;

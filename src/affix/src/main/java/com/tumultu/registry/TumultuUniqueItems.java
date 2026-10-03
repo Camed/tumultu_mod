@@ -399,6 +399,34 @@ public class TumultuUniqueItems {
         return builder.build();
     }
 
+    private static final Identifier GLIMPSE_OF_GHAST_FIRE_AFFIX_ID =
+            Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/glimpse_of_ghast_fire");
+    private static final Identifier GLIMPSE_OF_GHAST_COLD_AFFIX_ID =
+            Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/glimpse_of_ghast_cold");
+    private static final Identifier GLIMPSE_OF_GHAST_LIGHTNING_AFFIX_ID =
+            Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/glimpse_of_ghast_lightning");
+    private static final Identifier GLIMPSE_OF_GHAST_RESISTANCE_AFFIX_ID =
+            Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/glimpse_of_ghast_resistance");
+
+    // unique leveling belt - provides reasonable flat damage and some resistances
+    public static final Supplier<Item> GLIMPSE_OF_GHAST = TumultuItemsRegistry.ITEMS.register(
+            "glimpse_of_ghast",
+            registryName -> new Item(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, registryName))
+                    .stacksTo(1)
+                    .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
+                    .component(DataComponents.CUSTOM_NAME,
+                            Component.translatable("item.tumultu.glimpse_of_ghast").withStyle(ItemRarity.UNIQUE.color()))
+                    .component(TumultuDataComponents.AFFIX_DATA.get(), new AffixData(
+                            ItemRarity.UNIQUE,
+                            List.of(
+                                    new RolledAffix(GLIMPSE_OF_GHAST_FIRE_AFFIX_ID, 0, 5.0),
+                                    new RolledAffix(GLIMPSE_OF_GHAST_COLD_AFFIX_ID, 0, 5.0),
+                                    new RolledAffix(GLIMPSE_OF_GHAST_LIGHTNING_AFFIX_ID, 0, 5.0),
+                                    new RolledAffix(GLIMPSE_OF_GHAST_RESISTANCE_AFFIX_ID, 0, 0.10)),
+                            false)))
+    );
+
     // after adding new unique, add it to this list (!!!)
-    public static final List<Supplier<Item>> ALL = List.of(CINDERHEART, DEVOURER, REFLECTION_OF_IRON, DRAGONS_HEART, PILLAGERS_FAVOUR, VILLAGERS_GAMBLE, CROWN_OF_STABILITY, REVERSED_FORCES, REVERSED_TOXINS);
+    public static final List<Supplier<Item>> ALL = List.of(CINDERHEART, DEVOURER, REFLECTION_OF_IRON, DRAGONS_HEART, PILLAGERS_FAVOUR, VILLAGERS_GAMBLE, CROWN_OF_STABILITY, REVERSED_FORCES, REVERSED_TOXINS, GLIMPSE_OF_GHAST);
 }

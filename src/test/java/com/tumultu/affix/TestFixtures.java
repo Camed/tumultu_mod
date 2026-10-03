@@ -22,6 +22,10 @@ final class TestFixtures {
         return new AffixTier(min, max, 100, applicableTags);
     }
 
+    static AffixTier tierWithLevel(double min, double max, int requiredItemLevel) {
+        return new AffixTier(min, max, 100, List.of(), requiredItemLevel);
+    }
+
     static AffixDefinition definition(AffixType type, String group, int weight, List<AffixTier> tiers) {
         return new AffixDefinition(type, group, new AreaMiningEffect(false), tiers, weight, group, List.of());
     }

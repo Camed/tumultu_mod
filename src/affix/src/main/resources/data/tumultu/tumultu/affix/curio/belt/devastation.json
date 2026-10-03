@@ -1,0 +1,54 @@
+{
+  "type": "suffix",
+  "display_name": "of Devastation",
+  "effect": {
+    "type": "crit_damage_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": 0.03,
+      "max_value": 0.054
+    },
+    {
+      "min_value": 0.054,
+      "max_value": 0.077,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.077,
+      "max_value": 0.101,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.101,
+      "max_value": 0.125,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.125,
+      "max_value": 0.149,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.149,
+      "max_value": 0.173,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.173,
+      "max_value": 0.196,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.196,
+      "max_value": 0.22,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 10,
+  "group": "curio_belt_crit_damage_multiplier",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "critical"
+}

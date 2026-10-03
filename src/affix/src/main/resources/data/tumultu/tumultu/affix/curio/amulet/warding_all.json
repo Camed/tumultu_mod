@@ -1,0 +1,54 @@
+{
+  "type": "suffix",
+  "display_name": "of the Elements",
+  "effect": {
+    "type": "all_elemental_resistance"
+  },
+  "tiers": [
+    {
+      "min_value": 0.017,
+      "max_value": 0.042
+    },
+    {
+      "min_value": 0.042,
+      "max_value": 0.063,
+      "required_item_level": 13
+    },
+    {
+      "min_value": 0.063,
+      "max_value": 0.084,
+      "required_item_level": 24
+    },
+    {
+      "min_value": 0.084,
+      "max_value": 0.109,
+      "required_item_level": 35
+    },
+    {
+      "min_value": 0.109,
+      "max_value": 0.133,
+      "required_item_level": 45
+    },
+    {
+      "min_value": 0.133,
+      "max_value": 0.155,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.155,
+      "max_value": 0.179,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.179,
+      "max_value": 0.2,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 8,
+  "group": "curio_amulet_all_resistance",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "elemental_defense"
+}

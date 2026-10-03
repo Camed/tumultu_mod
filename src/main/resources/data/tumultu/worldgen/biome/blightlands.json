@@ -3,7 +3,8 @@
   "temperature": 0.8,
   "downfall": 0.4,
   "effects": {
-    "water_color": 4873507
+    "water_color": 4873507,
+    "grass_color": 10263612
   },
   "carvers": [],
   "features": [

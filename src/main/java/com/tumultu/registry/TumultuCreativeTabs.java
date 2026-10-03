@@ -32,10 +32,13 @@ public class TumultuCreativeTabs {
                         output.accept(CurrencyItems.EMPOWERING_GEM.get());
                         output.accept(CurrencyItems.IMBUING_SHARD.get());
                         output.accept(CurrencyItems.MYSTERIOUS_BOOKPAGE.get());
+                        output.accept(CurrencyItems.DIVINE_SHARD.get());
+                        output.accept(CurrencyItems.SHARD_OF_DISCOVERY.get());
                         output.accept(CraftingBlocks.CRAFTING_BENCH_ITEM.get());
                         output.accept(CraftingBlocks.SHARD_STASH_ITEM.get());
                         output.accept(TumultuItemDefinitions.RING.get());
                         output.accept(TumultuItemDefinitions.AMULET.get());
+                        output.accept(TumultuItemDefinitions.BELT.get());
                         output.accept(TumultuItemDefinitions.BLIGHTFANG_SPAWN_EGG.get());
                         output.accept(TumultuItemDefinitions.BLIGHTFANG_ALPHA_SPAWN_EGG.get());
                         output.accept(TumultuItemDefinitions.BLIGHTLORD_SPAWN_EGG.get());
@@ -57,6 +60,13 @@ public class TumultuCreativeTabs {
                         output.accept(BlightlandsBlocks.BLIGHTED_SIGN_ITEM.get());
                         output.accept(BlightlandsBlocks.BLIGHTED_BOAT_ITEM.get());
                         output.accept(BlightlandsBlocks.BLIGHTED_CHEST_BOAT_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_SLAB_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_STAIRS_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_FENCE_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_FENCE_GATE_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_TRAPDOOR_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_BUTTON_ITEM.get());
+                        output.accept(BlightlandsBlocks.BLIGHTED_PRESSURE_PLATE_ITEM.get());
                     })
                     .build()
     );

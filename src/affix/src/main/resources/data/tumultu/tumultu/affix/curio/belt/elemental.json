@@ -1,0 +1,54 @@
+{
+  "type": "prefix",
+  "display_name": "Elemental",
+  "effect": {
+    "type": "elemental_damage_percent"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.094
+    },
+    {
+      "min_value": 0.094,
+      "max_value": 0.138,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.138,
+      "max_value": 0.181,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.181,
+      "max_value": 0.225,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.225,
+      "max_value": 0.269,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.269,
+      "max_value": 0.312,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.312,
+      "max_value": 0.356,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.356,
+      "max_value": 0.4,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 15,
+  "group": "curio_belt_elemental_damage_percent",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "elemental_offense"
+}

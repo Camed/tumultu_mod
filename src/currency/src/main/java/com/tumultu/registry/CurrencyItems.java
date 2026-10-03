@@ -13,6 +13,7 @@ import com.tumultu.shard.PeakingShard;
 import com.tumultu.shard.RebindingAshesShard;
 import com.tumultu.shard.SeveringShard;
 import com.tumultu.shard.ShapingShard;
+import com.tumultu.shard.ShardOfDiscoveryItem;
 import com.tumultu.shard.TwistingShard;
 import com.tumultu.shard.WeavingShard;
 import net.minecraft.core.component.DataComponents;
@@ -158,6 +159,18 @@ public class CurrencyItems {
     public static final Supplier<Item> DIVINE_SHARD = TumultuItemsRegistry.ITEMS.register(
             "divine_shard",
             registryName -> new DivineShard(new Item.Properties()
+                    .setId(ResourceKey.create(Registries.ITEM, registryName))
+                    .stacksTo(32)
+                    .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true))
+    );
+
+    // Grants an item its permanent item level.
+    // Each stack's power (which level band it rolls) lives in its own DISCOVERY_SHARD_TIER component,
+    // stamped at drop time, not in this Item class - so unlike every other entry here, two stacks
+    // of this item are only equal/stackable when they share that component too.
+    public static final Supplier<Item> SHARD_OF_DISCOVERY = TumultuItemsRegistry.ITEMS.register(
+            "shard_of_discovery",
+            registryName -> new ShardOfDiscoveryItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(32)
                     .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true))

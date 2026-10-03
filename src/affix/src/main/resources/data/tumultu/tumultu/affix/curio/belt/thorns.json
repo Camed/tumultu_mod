@@ -1,0 +1,54 @@
+{
+  "type": "prefix",
+  "display_name": "Spiked",
+  "effect": {
+    "type": "thorns_multiplier"
+  },
+  "tiers": [
+    {
+      "min_value": 0.1,
+      "max_value": 0.169
+    },
+    {
+      "min_value": 0.169,
+      "max_value": 0.238,
+      "required_item_level": 10
+    },
+    {
+      "min_value": 0.238,
+      "max_value": 0.306,
+      "required_item_level": 20
+    },
+    {
+      "min_value": 0.306,
+      "max_value": 0.375,
+      "required_item_level": 32
+    },
+    {
+      "min_value": 0.375,
+      "max_value": 0.444,
+      "required_item_level": 44
+    },
+    {
+      "min_value": 0.444,
+      "max_value": 0.513,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.513,
+      "max_value": 0.581,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.581,
+      "max_value": 0.65,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 15,
+  "group": "curio_belt_thorns_multiplier",
+  "applicable_tags": [
+    "tumultu:belts"
+  ],
+  "craft_category": "physical_defense"
+}
