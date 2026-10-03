@@ -6,6 +6,7 @@ import com.tumultu.affix.ItemRarity;
 import com.tumultu.affix.RolledAffix;
 import com.tumultu.unique.CinderheartItem;
 import com.tumultu.unique.ReflectionOfIronItem;
+import com.tumultu.unique.ReversedForcesItem;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.component.DataComponents;
@@ -25,6 +26,8 @@ import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorMaterials;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.EquipmentAsset;
+import net.minecraft.world.item.equipment.EquipmentAssets;
 import top.theillusivec4.curios.api.CurioAttributeModifiers;
 import top.theillusivec4.curios.api.CuriosDataComponents;
 
@@ -34,6 +37,11 @@ import java.util.function.Supplier;
 
 // Unique items are "hardcoded", specific items, mostly unmodifiable (if there is a unique item with rolls, there is one specific shard to roll them (divine shard)).
 public class TumultuUniqueItems {
+
+    private static ArmorMaterial withAsset(ArmorMaterial base, ResourceKey<EquipmentAsset> assetId) {
+        return new ArmorMaterial(base.durability(), base.defense(), base.enchantmentValue(), base.equipSound(),
+                base.toughness(), base.knockbackResistance(), base.repairIngredient(), assetId);
+    }
 
     // Cinderheart
     // Uses overcapped fire resistance in order to scale players damage - roughly 50% of overcap as "more" damage.
@@ -176,13 +184,17 @@ public class TumultuUniqueItems {
     private static final Identifier DRAGONS_HEART_CANNOT_BE_WITHERED_AFFIX_ID =
             Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/dragons_heart_cannot_be_withered");
 
+    private static final ResourceKey<EquipmentAsset> DRAGONS_HEART_ASSET = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "dragons_heart"));
+    private static final ArmorMaterial DRAGONS_HEART_MATERIAL = withAsset(ArmorMaterials.DIAMOND, DRAGONS_HEART_ASSET);
+
     public static final Supplier<Item> DRAGONS_HEART = TumultuItemsRegistry.ITEMS.register(
             "dragons_heart",
             registryName -> new Item(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(1)
-                    .humanoidArmor(ArmorMaterials.DIAMOND, ArmorType.CHESTPLATE)
-                    .attributes(armorAttributesWithMaxHealth(ArmorMaterials.DIAMOND, ArmorType.CHESTPLATE,
+                    .humanoidArmor(DRAGONS_HEART_MATERIAL, ArmorType.CHESTPLATE)
+                    .attributes(armorAttributesWithMaxHealth(DRAGONS_HEART_MATERIAL, ArmorType.CHESTPLATE,
                             EquipmentSlotGroup.CHEST, DRAGONS_HEART_MAX_HEALTH_AFFIX_ID, 100.0))
                     .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
                     .component(DataComponents.CUSTOM_NAME,
@@ -293,6 +305,9 @@ public class TumultuUniqueItems {
     private static final Identifier CROWN_OF_STABILITY_CRIT_DAMAGE_MULTIPLIER_AFFIX_ID =
             Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/crown_of_stability_crit_damage_multiplier");
 
+    private static final ResourceKey<EquipmentAsset> CROWN_OF_STABILITY_ASSET = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "crown_of_stability"));
+    private static final ArmorMaterial CROWN_OF_STABILITY_MATERIAL = withAsset(ArmorMaterials.NETHERITE, CROWN_OF_STABILITY_ASSET);
 
     // Crit normalization item
     public static final Supplier<Item> CROWN_OF_STABILITY = TumultuItemsRegistry.ITEMS.register(
@@ -300,8 +315,8 @@ public class TumultuUniqueItems {
             registryName -> new Item(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(1)
-                    .humanoidArmor(ArmorMaterials.NETHERITE, ArmorType.HELMET)
-                    .attributes(armorAttributesWithMaxHealth(ArmorMaterials.NETHERITE, ArmorType.HELMET,
+                    .humanoidArmor(CROWN_OF_STABILITY_MATERIAL, ArmorType.HELMET)
+                    .attributes(armorAttributesWithMaxHealth(CROWN_OF_STABILITY_MATERIAL, ArmorType.HELMET,
                             EquipmentSlotGroup.HEAD, CROWN_OF_STABILITY_MAX_HEALTH_AFFIX_ID, 4.0))
                     .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
                     .component(DataComponents.CUSTOM_NAME,
@@ -323,16 +338,19 @@ public class TumultuUniqueItems {
     private static final Identifier REVERSED_FORCES_FIRE_RESISTANCE_AFFIX_ID =
             Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/reversed_forces_fire_resistance");
 
+    private static final ResourceKey<EquipmentAsset> REVERSED_FORCES_ASSET = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "reversed_forces"));
+    private static final ArmorMaterial REVERSED_FORCES_MATERIAL = withAsset(ArmorMaterials.NETHERITE, REVERSED_FORCES_ASSET);
 
     // Actually pretty funny item:
     // converts all the gravity modifiers on a player to a movement speed
     // gotta go fast!
     public static final Supplier<Item> REVERSED_FORCES = TumultuItemsRegistry.ITEMS.register(
             "reversed_forces",
-            registryName -> new Item(new Item.Properties()
+            registryName -> new ReversedForcesItem(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(1)
-                    .humanoidArmor(ArmorMaterials.NETHERITE, ArmorType.LEGGINGS)
+                    .humanoidArmor(REVERSED_FORCES_MATERIAL, ArmorType.LEGGINGS)
                     .attributes(reversedForcesAttributes())
                     .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
                     .component(DataComponents.CUSTOM_NAME,
@@ -347,7 +365,7 @@ public class TumultuUniqueItems {
     );
 
     private static ItemAttributeModifiers reversedForcesAttributes() {
-        ItemAttributeModifiers base = ArmorMaterials.NETHERITE.createAttributes(ArmorType.LEGGINGS);
+        ItemAttributeModifiers base = REVERSED_FORCES_MATERIAL.createAttributes(ArmorType.LEGGINGS);
         ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
         base.modifiers().forEach(entry -> builder.add(entry.attribute(), entry.modifier(), entry.slot(), entry.display()));
         builder.add(Attributes.MAX_HEALTH,
@@ -366,6 +384,9 @@ public class TumultuUniqueItems {
     private static final Identifier REVERSED_TOXINS_REVERSE_POISON_AFFIX_ID =
             Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "unique/reversed_toxins_reverse_poison");
 
+    private static final ResourceKey<EquipmentAsset> REVERSED_TOXINS_ASSET = ResourceKey.create(
+            EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(com.tumultu.TumultuMod.MOD_ID, "reversed_toxins"));
+    private static final ArmorMaterial REVERSED_TOXINS_MATERIAL = withAsset(ArmorMaterials.NETHERITE, REVERSED_TOXINS_ASSET);
 
     // another conversion unique, but on another axis
     // it converts incoming poison damage (both vanilla and tumultu origin) as healing.
@@ -375,7 +396,7 @@ public class TumultuUniqueItems {
             registryName -> new Item(new Item.Properties()
                     .setId(ResourceKey.create(Registries.ITEM, registryName))
                     .stacksTo(1)
-                    .humanoidArmor(ArmorMaterials.NETHERITE, ArmorType.BOOTS)
+                    .humanoidArmor(REVERSED_TOXINS_MATERIAL, ArmorType.BOOTS)
                     .attributes(reversedToxinsAttributes())
                     .component(DataComponents.ENCHANTMENT_GLINT_OVERRIDE, true)
                     .component(DataComponents.CUSTOM_NAME,
@@ -390,7 +411,7 @@ public class TumultuUniqueItems {
     );
 
     private static ItemAttributeModifiers reversedToxinsAttributes() {
-        ItemAttributeModifiers base = ArmorMaterials.NETHERITE.createAttributes(ArmorType.BOOTS);
+        ItemAttributeModifiers base = REVERSED_TOXINS_MATERIAL.createAttributes(ArmorType.BOOTS);
         ItemAttributeModifiers.Builder builder = ItemAttributeModifiers.builder();
         base.modifiers().forEach(entry -> builder.add(entry.attribute(), entry.modifier(), entry.slot(), entry.display()));
         builder.add(Attributes.MOVEMENT_SPEED,

@@ -14,8 +14,12 @@ import com.tumultu.registry.BlightlandsEntityTypes;
 import com.tumultu.registry.CraftingMenus;
 import com.tumultu.registry.TumultuEntityTypes;
 import com.tumultu.registry.TumultuModelLayers;
+import com.tumultu.registry.TumultuUniqueItems;
+import com.tumultu.unique.client.UniqueArmorItemExtensions;
+import com.tumultu.unique.client.UniqueArmorModels;
 import net.minecraft.client.model.object.boat.BoatModel;
 import net.minecraft.client.renderer.entity.BoatRenderer;
+import net.minecraft.client.resources.model.EquipmentClientInfo;
 import net.minecraft.resources.Identifier;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,6 +27,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 
@@ -42,6 +47,22 @@ public class TumultuClientEvents {
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTBONE, BlightboneModel::createBodyLayer);
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTED_BOAT, BoatModel::createBoatModel);
         event.registerLayerDefinition(TumultuModelLayers.BLIGHTED_CHEST_BOAT, BoatModel::createChestBoatModel);
+        event.registerLayerDefinition(TumultuModelLayers.CROWN_OF_STABILITY_ARMOR, UniqueArmorModels::createCrownOfStabilityLayer);
+        event.registerLayerDefinition(TumultuModelLayers.REVERSED_FORCES_ARMOR, UniqueArmorModels::createReversedForcesLayer);
+        event.registerLayerDefinition(TumultuModelLayers.REVERSED_TOXINS_ARMOR, UniqueArmorModels::createReversedToxinsLayer);
+        event.registerLayerDefinition(TumultuModelLayers.DRAGONS_HEART_ARMOR, UniqueArmorModels::createDragonsHeartLayer);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterClientExtensions(RegisterClientExtensionsEvent event) {
+        event.registerItem(new UniqueArmorItemExtensions(TumultuModelLayers.CROWN_OF_STABILITY_ARMOR, EquipmentClientInfo.LayerType.HUMANOID),
+                TumultuUniqueItems.CROWN_OF_STABILITY.get());
+        event.registerItem(new UniqueArmorItemExtensions(TumultuModelLayers.REVERSED_FORCES_ARMOR, EquipmentClientInfo.LayerType.HUMANOID_LEGGINGS),
+                TumultuUniqueItems.REVERSED_FORCES.get());
+        event.registerItem(new UniqueArmorItemExtensions(TumultuModelLayers.REVERSED_TOXINS_ARMOR, EquipmentClientInfo.LayerType.HUMANOID),
+                TumultuUniqueItems.REVERSED_TOXINS.get());
+        event.registerItem(new UniqueArmorItemExtensions(TumultuModelLayers.DRAGONS_HEART_ARMOR, EquipmentClientInfo.LayerType.HUMANOID),
+                TumultuUniqueItems.DRAGONS_HEART.get());
     }
 
     @SubscribeEvent
