@@ -18,8 +18,9 @@
     [],
     [],
     [
-      "tumultu:blighted_tree",
+      "tumultu:blighted_trees",
       "minecraft:patch_grass_plain",
+      "minecraft:patch_tall_grass",
       "minecraft:patch_dead_bush"
     ],
     []

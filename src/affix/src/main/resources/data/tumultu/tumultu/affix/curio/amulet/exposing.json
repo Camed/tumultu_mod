@@ -1,0 +1,54 @@
+{
+  "type": "prefix",
+  "display_name": "Exposing",
+  "effect": {
+    "type": "elemental_penetration"
+  },
+  "tiers": [
+    {
+      "min_value": 0.05,
+      "max_value": 0.087
+    },
+    {
+      "min_value": 0.087,
+      "max_value": 0.125,
+      "required_item_level": 13
+    },
+    {
+      "min_value": 0.125,
+      "max_value": 0.162,
+      "required_item_level": 24
+    },
+    {
+      "min_value": 0.162,
+      "max_value": 0.2,
+      "required_item_level": 35
+    },
+    {
+      "min_value": 0.2,
+      "max_value": 0.237,
+      "required_item_level": 45
+    },
+    {
+      "min_value": 0.237,
+      "max_value": 0.275,
+      "required_item_level": 56
+    },
+    {
+      "min_value": 0.275,
+      "max_value": 0.312,
+      "required_item_level": 68
+    },
+    {
+      "min_value": 0.312,
+      "max_value": 0.35,
+      "required_item_level": 80
+    }
+  ],
+  "weight": 10,
+  "group": "curio_amulet_elemental_penetration",
+  "applicable_tags": [
+    "tumultu:amulets"
+  ],
+  "craft_category": "elemental_offense"
+}

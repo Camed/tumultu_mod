@@ -1,8 +1,8 @@
 {
   "type": "prefix",
-  "display_name": "Exposing",
+  "display_name": "Breaching",
   "effect": {
-    "type": "elemental_penetration"
+    "type": "armor_penetration"
   },
   "tiers": [
     {
@@ -45,10 +45,10 @@
       "required_item_level": 79
     }
   ],
-  "weight": 15,
-  "group": "elemental_penetration",
+  "weight": 12,
+  "group": "armor_penetration",
   "applicable_tags": [
     "tumultu:ranged_weapons"
   ],
-  "craft_category": "ranged_utility"
+  "craft_category": "physical_offense"
 }

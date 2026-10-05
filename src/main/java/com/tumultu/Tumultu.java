@@ -148,7 +148,7 @@ public class Tumultu {
 
         NeoForge.EVENT_BUS.addListener(DiscoveryShardChanceReloadListener::onAddReloadListeners);
 
-        Regions.register(new BlightlandsRegion(Identifier.fromNamespaceAndPath(MOD_ID, "tier3_biome_region"), 9));
+        Regions.register(new BlightlandsRegion(Identifier.fromNamespaceAndPath(MOD_ID, "tier3_biome_region"), 6));
 
         LOGGER.info("Tumultu initialized");
     }

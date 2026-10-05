@@ -53,6 +53,7 @@ public class AffixEffectTypes {
         register("crit_chance_multiplier", CritChanceMultiplierEffect.MAP_CODEC);
         register("crit_damage_multiplier", CritDamageMultiplierEffect.MAP_CODEC);
         register("reverse_poison", ReversePoisonEffect.MAP_CODEC);
+        register("armor_penetration", ArmorPenetrationEffect.MAP_CODEC);
     }
 
     private static <T extends AffixEffect> void register(String id, MapCodec<T> codec) {

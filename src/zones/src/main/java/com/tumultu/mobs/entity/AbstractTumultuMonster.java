@@ -35,6 +35,8 @@ import org.jspecify.annotations.Nullable;
 // common base for mobs
 // todo: move stats somewhere else
 public abstract class AbstractTumultuMonster extends Monster implements TieredCombatant {
+    private static final double RESISTANCE_SCALING_PER_TIER = 0.01;
+
     private int tier = 1;
 
     // todo: all of these should be somewhere else, they can be getted/setted here yet not kept there
@@ -141,9 +143,10 @@ public abstract class AbstractTumultuMonster extends Monster implements TieredCo
         this.getAttribute(Attributes.KNOCKBACK_RESISTANCE).setBaseValue(definition.knockbackResistance());
         this.getAttribute(Attributes.SCALE).setBaseValue(definition.scale());
         this.xpReward = (int) Math.round(definition.xpReward() * multiplier);
-        this.fireResistance = definition.fireResistance();
-        this.coldResistance = definition.coldResistance();
-        this.lightningResistance = definition.lightningResistance();
+        double resistanceBonus = RESISTANCE_SCALING_PER_TIER * effectiveTier;
+        this.fireResistance = definition.fireResistance() + resistanceBonus;
+        this.coldResistance = definition.coldResistance() + resistanceBonus;
+        this.lightningResistance = definition.lightningResistance() + resistanceBonus;
         this.poisonChanceOnHit = definition.poisonChanceOnHit();
         this.poisonDamagePerSecond = definition.poisonDamagePerSecond();
         this.poisonDurationTicks = definition.poisonDurationTicks();

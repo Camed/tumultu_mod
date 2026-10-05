@@ -98,6 +98,10 @@ public class CombatEventHandler {
     // cinderheart conversion ratio
     private static final double CINDERHEART_OVERCAP_MULTIPLIER_PER_POINT = 0.5;
 
+    // reflection of iron: armor points per +multiplier step
+    private static final double REFLECTION_OF_IRON_ARMOR_PER_STEP = 15.0;
+    private static final double REFLECTION_OF_IRON_MULTIPLIER_PER_STEP = 2.0;
+
     // elemental damage types are all in data/minecraft/tags/damage_type/bypasses_cooldown.json -
     // without it, this follow-up hit (delivered next tick, still well inside the melee hit's own
     // ~20-tick invulnerability window) would be silently dropped by LivingEntity.hurtServer's own
@@ -167,7 +171,7 @@ public class CombatEventHandler {
             return 1.0;
         }
         double armor = PlayerCombatStats.trueArmor(wielder, registry);
-        return Math.pow(2, armor / 10.0);
+        return 1.0 + REFLECTION_OF_IRON_MULTIPLIER_PER_STEP * (armor / REFLECTION_OF_IRON_ARMOR_PER_STEP);
     }
 
 
@@ -198,7 +202,7 @@ public class CombatEventHandler {
             if (incoming.getEntity() instanceof LivingEntity attacker && resistance > 0) {
                 double penetration = PlayerCombatStats.elementalPenetration(attacker, registry);
                 if (penetration > 0) {
-                    resistance *= (1 - Math.min(penetration, 1.0));
+                    resistance *= (1 - Math.min(penetration, PlayerCombatStats.MAX_ELEMENTAL_PENETRATION));
                 }
             }
 
@@ -281,9 +285,11 @@ public class CombatEventHandler {
         // would otherwise still run its own armor math afterward, in the normal damage pipeline,
         // using the same Attributes.ARMOR value.
         if (!incoming.is(DamageTypeTags.BYPASSES_ARMOR)) {
+            double armorPenetration = incoming.getEntity() instanceof LivingEntity penetratingAttacker
+                    ? PlayerCombatStats.armorPenetration(penetratingAttacker, registry) : 0.0;
             event.addReductionModifier(DamageContainer.Reduction.ARMOR, (container, vanillaReduction) -> {
                 double before = container.getNewDamage();
-                double after = before * PlayerCombatStats.finalPhysicalDamageMultiplier(victim, registry);
+                double after = before * PlayerCombatStats.finalPhysicalDamageMultiplier(victim, registry, armorPenetration);
                 return (float) (before - after);
             });
         }

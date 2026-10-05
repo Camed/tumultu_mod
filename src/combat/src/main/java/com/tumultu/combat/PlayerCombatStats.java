@@ -6,6 +6,7 @@ import com.tumultu.affix.RolledAffix;
 import com.tumultu.affix.effect.AffixEffect;
 import com.tumultu.affix.effect.AllElementalResistanceEffect;
 import com.tumultu.affix.effect.ArmorAppliesToElementalEffect;
+import com.tumultu.affix.effect.ArmorPenetrationEffect;
 import com.tumultu.affix.effect.AttributeEffect;
 import com.tumultu.affix.effect.CannotBeBledEffect;
 import com.tumultu.affix.effect.CannotBePoisonedEffect;
@@ -47,6 +48,8 @@ public class PlayerCombatStats {
     public static final double MAX_PHYSICAL_REDUCTION = 0.90;
     private static final double ARMOR_MITIGATION_PER_POINT = 0.04;
     private static final double MAX_ARMOR_MITIGATION_EQUIVALENT = 0.80;
+    private static final double MAX_ARMOR_PENETRATION = 0.90;
+    public static final double MAX_ELEMENTAL_PENETRATION = 0.90;
 
      // Base curve steepness for {@link #armorDamageMultiplier}'s {@code x} - at 4.0 with 0
      // Toughness, 20 Armor gives ~44% reduction, 50 gives ~67%, 100 gives 80%. Raise to make Armor
@@ -122,7 +125,11 @@ public class PlayerCombatStats {
 
     // armor reworked!
     public static double armorDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry) {
-        double armor = trueArmor(entity, registry);
+        return armorDamageMultiplier(entity, registry, 0.0);
+    }
+
+    public static double armorDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry, double armorPenetration) {
+        double armor = trueArmor(entity, registry) * (1 - Math.min(armorPenetration, MAX_ARMOR_PENETRATION));
         double toughness = entity.getAttributeValue(Attributes.ARMOR_TOUGHNESS);
         double x = ARMOR_FORMULA_BASE_MULTIPLIER + ARMOR_FORMULA_TOUGHNESS_MULTIPLIER * toughness;
         return 100.0 / (100.0 + x * armor);
@@ -181,7 +188,11 @@ public class PlayerCombatStats {
     }
 
     public static double finalPhysicalDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry) {
-        double multiplier = armorDamageMultiplier(entity, registry) * (1 - physicalDamageReduction(entity, registry));
+        return finalPhysicalDamageMultiplier(entity, registry, 0.0);
+    }
+
+    public static double finalPhysicalDamageMultiplier(LivingEntity entity, Registry<AffixDefinition> registry, double armorPenetration) {
+        double multiplier = armorDamageMultiplier(entity, registry, armorPenetration) * (1 - physicalDamageReduction(entity, registry));
         return Math.max(multiplier, 1 - MAX_FINAL_PHYSICAL_REDUCTION);
     }
 
@@ -228,7 +239,12 @@ public class PlayerCombatStats {
                 + sumWhere(curioAffixData(entity), registry, LifeRegenerationEffect.class);
     }
     public static double elementalPenetration(LivingEntity entity, Registry<AffixDefinition> registry) {
-        return sumElementalPenetration(allEquippedAffixData(entity), registry);
+        return sumElementalPenetration(allEquippedAffixData(entity), registry)
+                + sumElementalPenetration(curioAffixData(entity), registry);
+    }
+    public static double armorPenetration(LivingEntity entity, Registry<AffixDefinition> registry) {
+        return sumWhere(allEquippedAffixData(entity), registry, ArmorPenetrationEffect.class)
+                + sumWhere(curioAffixData(entity), registry, ArmorPenetrationEffect.class);
     }
 
     // todo: update as IItemHandlerModifiable is marked as deprecated

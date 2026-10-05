@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "tumultu:blighted_tree",
+    "features": [
+      {
+        "chance": 0.35,
+        "feature": "tumultu:blighted_tree_dead"
+      }
+    ]
+  }
+}

@@ -4,7 +4,6 @@ import com.tumultu.registry.CurrencyItems;
 import com.tumultu.registry.TumultuDataComponents;
 import com.tumultu.zones.DiscoveryShardChanceReloadListener;
 import com.tumultu.zones.ItemLevel;
-import com.tumultu.zones.WorldTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.LivingEntity;
@@ -23,11 +22,11 @@ public class ShardOfDiscoveryDropHandler {
         }
 
         BlockPos pos = entity.blockPosition();
-        if (WorldTier.fromPosition(pos.getX(), pos.getZ()) == 0) {
+        int tier = ItemLevel.discoveryTierAt(serverLevel, pos);
+        if (tier == 0) {
             return;
         }
 
-        int tier = ItemLevel.discoveryTierAt(serverLevel, pos);
         double chance = DiscoveryShardChanceReloadListener.current().multiplierFor(tier);
         if (entity.getRandom().nextDouble() >= chance) {
             return;
